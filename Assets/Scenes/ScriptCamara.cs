@@ -22,7 +22,7 @@ public class ScriptCamara : MonoBehaviour
         MouseX = Input.GetAxis("Mouse X") * 100 * Time.deltaTime;
         Body.Rotate(Vector3.up, MouseX);
 
-        MouseY = Input.GetAxis("MouseY") * 100 * Time.deltaTime;
+        MouseY = Input.GetAxis("Mouse Y") * 100 * Time.deltaTime;
         Head.Rotate(Vector3.left, MouseY);
     }
 }
