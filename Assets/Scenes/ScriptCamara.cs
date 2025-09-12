@@ -21,10 +21,10 @@ public class ScriptCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MouseX = Input.GetAxis("Mouse X") * 100 * Time.deltaTime;
+        MouseX = Input.GetAxis("Mouse X") * 150 * Time.deltaTime;
         Body.Rotate(Vector3.up, MouseX);
 
-        MouseY = Input.GetAxis("Mouse Y") * 100 * Time.deltaTime;
+        MouseY = Input.GetAxis("Mouse Y") * 150 * Time.deltaTime;
         Angle -= MouseY;
         Angle = Mathf.Clamp(Angle, -30, 45);
         Head.localRotation = Quaternion.Euler(Angle, 0, 0);
