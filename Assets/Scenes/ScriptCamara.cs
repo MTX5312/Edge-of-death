@@ -8,7 +8,7 @@ public class ScriptCamara : MonoBehaviour
     public float MouseY;
 
     public Transform Body;
-    public Transforma Head;
+    public Transform Head;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class ScriptCamara : MonoBehaviour
         MouseX = Input.GetAxis("Mouse X") * 100 * Time.deltaTime;
         Body.Rotate(Vector3.up, MouseX);
 
-        MouseY = Input.GetAxis("MouseY") * 100 * Time.deltatime;
+        MouseY = Input.GetAxis("MouseY") * 100 * Time.deltaTime;
         Head.Rotate(Vector3.left, MouseY);
     }
 }
