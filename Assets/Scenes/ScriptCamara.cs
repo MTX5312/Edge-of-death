@@ -10,6 +10,8 @@ public class ScriptCamara : MonoBehaviour
     public Transform Body;
     public Transform Head;
 
+    public float Angle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class ScriptCamara : MonoBehaviour
         Body.Rotate(Vector3.up, MouseX);
 
         MouseY = Input.GetAxis("Mouse Y") * 100 * Time.deltaTime;
-        Head.Rotate(Vector3.left, MouseY);
+        Angle -= MouseY;
+        Angle = Mathf.Clamp(Angle, -30, 45);
+        Head.localRotation = Quaternion.Euler(Angle, 0, 0);
     }
 }
