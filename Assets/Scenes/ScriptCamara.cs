@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScriptCamara : MonoBehaviour
 {
+    public float MouseX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class ScriptCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MouseX = Input.GetAxis("Mouse X") * 100 * Time.deltaTime;
     }
 }
