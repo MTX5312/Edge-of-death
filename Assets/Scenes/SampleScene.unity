@@ -383,6 +383,67 @@ MonoBehaviour:
   Head: {fileID: 963194228}
   camaraMovida: 0
   Angle: 0
+--- !u!1001 &1152529521
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 23.254
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301717, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329830147933301737, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
+      propertyPath: m_Name
+      value: Pared (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55b2f8990ff30da4f90ea8e1f308c71b, type: 3}
 --- !u!1001 &1334793713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,6 +692,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -668,6 +741,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7869203351544743281, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
