@@ -378,8 +378,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseX: 0
   MouseY: 0
+  sensibilidad: 150
   Body: {fileID: 637136598}
   Head: {fileID: 963194228}
+  camaraMovida: 0
   Angle: 0
 --- !u!1001 &1334793713
 PrefabInstance:
@@ -603,6 +605,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2369344944536620024, guid: 3efeb0064ac8e8240bc3f60ca10d8b3e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 98187f1a1d5b0834a8c51c6de6b0c3a6, type: 2}
     - target: {fileID: 2369344944536620026, guid: 3efeb0064ac8e8240bc3f60ca10d8b3e, type: 3}
       propertyPath: m_Name
       value: Piso
@@ -663,6 +669,10 @@ PrefabInstance:
     - target: {fileID: 7869203351544743280, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869203351544743281, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: velocidadActual
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7869203351544743287, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_Constraints
