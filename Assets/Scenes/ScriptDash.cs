@@ -32,7 +32,7 @@ public class ScriptDash : MonoBehaviour
         float tiempo = 0f;
         while (tiempo < dashTiempo)
         {
-            transform.position = Vector3.Lerp(inicio, destino, tiempo);
+            transform.position = Vector3.Lerp(inicio, destino, tiempo /dashTiempo);
             tiempo += Time.deltaTime;
             yield return null;
         }
