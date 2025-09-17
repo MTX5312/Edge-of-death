@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class ScriptDash : MonoBehaviour
 {
-    public float dashDistancia = 3f;   // metros que avanza
-    public float dashTiempo = 0.2f;    // duración del dash
-    public float dashCooldown = 1f;    // tiempo entre dashes
+    public float dashDistancia = 3f;
+    public float dashTiempo = 0.2f;
+    public float dashCooldown = 1f;
     private float ultimoDash;
 
-    public Transform Body; // asigna el mismo Body del jugador
+    public Transform Body;
 
     private bool dashing = false;
 
@@ -16,17 +16,28 @@ public class ScriptDash : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > ultimoDash + dashCooldown && !dashing)
         {
-            StartCoroutine(Dash());
+            // Leer la dirección de movimiento
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+
+            Vector3 movimiento = new Vector3(x, 0, y).normalized;
+
+            // Si no hay input, dash hacia adelante
+            Vector3 direccion = (movimiento.sqrMagnitude > 0.01f)
+                ? Body.TransformDirection(movimiento)
+                : Body.forward;
+
+            StartCoroutine(Dash(direccion));
         }
     }
 
-    IEnumerator Dash()
+    IEnumerator Dash(Vector3 direccion)
     {
         dashing = true;
         ultimoDash = Time.time;
 
         Vector3 inicio = transform.position;
-        Vector3 destino = inicio + Body.forward * dashDistancia;
+        Vector3 destino = inicio + direccion * dashDistancia;
 
         float tiempo = 0f;
         while (tiempo < dashTiempo)
@@ -36,7 +47,8 @@ public class ScriptDash : MonoBehaviour
             yield return null;
         }
 
-        transform.position = destino; // asegurar que termine en el punto exacto
+        transform.position = destino;
         dashing = false;
     }
 }
+
