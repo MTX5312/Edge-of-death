@@ -81,7 +81,7 @@ public class ScriptJugador : MonoBehaviour
 
     private void Deslizar()
     {
-        float duracionSlide = 1.5f;
+        float duracionSlide = 1f;
         float velocidadExtra = 10f;
         float cooldownSlide = 1f;
         float tiempoUltimoSlide = -10;
