@@ -16,13 +16,23 @@ public class ScriptJugador : MonoBehaviour
 
     public Transform Body;
 
+    public Rigidbody rigidbody;
+    public float fuerzadesalto = 8;
+    public bool puedosaltar;
+
+
+
     private void Start()
     {
         if (Body == null)
         {
             Body = transform; // Usa el propio jugador como referencia
         }
+        puedosaltar = false;
+
     }
+
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -57,6 +67,14 @@ public class ScriptJugador : MonoBehaviour
                     rotacionObjetivo,
                     sensibilidad * Time.deltaTime
                 );
+            }
+        }
+        
+        if (puedosaltar)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rigidbody.AddForce(new Vector3(0, fuerzadesalto, 0), ForceMode.Impulse);
             }
         }
     }
