@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptDash : MonoBehaviour
 {
-    public float dashDistancia = 3f; //metros que avanza
-    public float dashTiempo = 0.2f; //duración del dash
-    public float dashCooldown = 1f; //tiempo entre dashes
+    public float dashDistancia = 3f;   // metros que avanza
+    public float dashTiempo = 0.2f;    // duración del dash
+    public float dashCooldown = 1f;    // tiempo entre dashes
     private float ultimoDash;
 
-    public Transform Body; //asigna el mismo Body del jugador
+    public Transform Body; // asigna el mismo Body del jugador
 
     private bool dashing = false;
 
@@ -32,9 +31,12 @@ public class ScriptDash : MonoBehaviour
         float tiempo = 0f;
         while (tiempo < dashTiempo)
         {
-            transform.position = Vector3.Lerp(inicio, destino, tiempo /dashTiempo);
+            transform.position = Vector3.Lerp(inicio, destino, tiempo / dashTiempo);
             tiempo += Time.deltaTime;
             yield return null;
         }
+
+        transform.position = destino; // asegurar que termine en el punto exacto
+        dashing = false;
     }
 }
