@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class WireframeCode : MonoBehaviour
 {
-    public Shader gridShader;       // arrastra tu shader GridWorldOverlay aquí
-    public Color gridColor = Color.green;
-    public float gridSize = 1f;
+    public Shader gridShader;
+    public Color gridColor = Color.gray;
+    public float gridSize = 5f;
     public float lineWidth = 0.02f;
 
     private Dictionary<MeshRenderer, Material[]> originalMaterials = new Dictionary<MeshRenderer, Material[]>();
@@ -20,8 +19,6 @@ public class WireframeCode : MonoBehaviour
             Debug.LogError("GridManager: Asigna el shader GridWorldOverlay en el inspector.");
             return;
         }
-
-        // Guardar todos los materiales originales
         MeshRenderer[] renderers = FindObjectsOfType<MeshRenderer>();
         foreach (var rend in renderers)
         {
@@ -45,7 +42,7 @@ public class WireframeCode : MonoBehaviour
         {
             MeshRenderer rend = kvp.Key;
 
-            if (rend == null) continue; // por si algún objeto fue destruido
+            if (rend == null) continue;
 
             if (gridEnabled)
             {
@@ -55,7 +52,6 @@ public class WireframeCode : MonoBehaviour
                     Material original = rend.sharedMaterials[i];
                     Material gridMat = new Material(gridShader);
 
-                    // copiar textura base si existe
                     if (original.HasProperty("_MainTex"))
                     {
                         Texture tex = original.GetTexture("_MainTex");
@@ -63,7 +59,6 @@ public class WireframeCode : MonoBehaviour
                             gridMat.SetTexture("_MainTex", tex);
                     }
 
-                    // aplicar parámetros de grilla
                     gridMat.SetColor("_GridColor", gridColor);
                     gridMat.SetFloat("_GridSize", gridSize);
                     gridMat.SetFloat("_LineWidth", lineWidth);
@@ -75,7 +70,6 @@ public class WireframeCode : MonoBehaviour
             }
             else
             {
-                // restaurar materiales originales
                 rend.materials = kvp.Value;
             }
         }
