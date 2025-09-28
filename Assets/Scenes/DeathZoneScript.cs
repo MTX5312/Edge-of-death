@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class DeathZoneScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform respawnPoint;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Player"))
+        {
+            other.transform.position = respawnPoint.position;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
     }
 }
