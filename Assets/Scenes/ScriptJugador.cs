@@ -27,6 +27,7 @@ public class ScriptJugador : MonoBehaviour
     public float gravedad = -20f;    // fuerza de gravedad
     private float velocidadVertical; // velocidad en eje Y
     private bool enSuelo = true;     // si está apoyado
+    private int saltosRestantes = 2; // saltos disponibles
 
 
 
