@@ -138,6 +138,16 @@ public class ScriptJugador : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("suelo"))
+        {
+            enSuelo = true;
+            velocidadVertical = 0;
+        }
+    }
+
+
     private void CambiarAltura(float nuevaAltura)
     {
         // Cambiar la escala del cuerpo (solo eje Y para altura)
