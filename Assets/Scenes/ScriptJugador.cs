@@ -47,26 +47,39 @@ public class ScriptJugador : MonoBehaviour
         Movimiento();
         Deslizar();
 
-        Vector3 movimiento = new Vector3(x, 0, y).normalized;
-
-        if (movimiento.sqrMagnitude > 0.01f)
-        {
-            direccion = Body.TransformDirection(movimiento);
-            transform.Translate(direccion * velocidadActual * Time.deltaTime, Space.World);
-
-            if (camara != null && camara.camaraMovida)
-            {
-                Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
-            }
-        }
-
-                    // Aplicar gravedad
+        // Aplicar gravedad
          if (!enSuelo)
         {
             velocidadVertical += gravedad * Time.deltaTime;
         }
+        
+        //salro
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+        {
+            velocidadVertical = fuerzaSalto;
+            enSuelo = false;
+        }
 
+        // Mover jugador con Y incluida
+        Vector3 movimiento = new Vector3(x, 0, y).normalized;
+
+        if (movimiento.sqrMagnitude > 0.01f)
+        {
+         direccion = Body.TransformDirection(movimiento);
+         transform.Translate((direccion * velocidadActual + Vector3.up * velocidadVertical) * Time.deltaTime, Space.World);
+
+            if (camara != null && camara.camaraMovida)
+            {
+             Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
+             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
+            }
+        }
+
+        else
+        {
+         // si no se mueve en XZ, aplicar solo la Y
+         transform.Translate(Vector3.up * velocidadVertical * Time.deltaTime, Space.World);
+        }
     }
 
     private void Movimiento()
