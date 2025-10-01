@@ -49,16 +49,23 @@ public class ScriptJugador : MonoBehaviour
         Deslizar();
 
         // Aplicar gravedad
-         if (!enSuelo)
+        if (!enSuelo)
         {
             velocidadVertical += gravedad * Time.deltaTime;
         }
+        else
+        {
+            velocidadVertical = 0f; // reiniciar velocidad vertical en el suelo
+            saltosRestantes = 2;// reiniciar saltos disponibles cuando toca el piso 
         
-        //salro
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+        }
+
+        //salro ( ahora doble salto)
+        if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
             velocidadVertical = fuerzaSalto;
             enSuelo = false;
+            saltosRestantes--;//Descuenta 1 salto del total de saltos
         }
 
         // Mover jugador con Y incluida
