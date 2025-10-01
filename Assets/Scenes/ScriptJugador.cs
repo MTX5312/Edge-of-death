@@ -22,6 +22,14 @@ public class ScriptJugador : MonoBehaviour
     public float alturaSlide = 1f;
     public float velocidadCambioAltura = 5f;
 
+    [Header("Salto")]
+    public float fuerzaSalto = 8f;   // altura del salto
+    public float gravedad = -20f;    // fuerza de gravedad
+    private float velocidadVertical; // velocidad en eje Y
+    private bool enSuelo = true;     // si está apoyado
+
+
+
     private void Start()
     {
         if (Body == null)
@@ -52,6 +60,7 @@ public class ScriptJugador : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
             }
         }
+
     }
 
     private void Movimiento()
@@ -109,6 +118,7 @@ public class ScriptJugador : MonoBehaviour
             }
         }
     }
+    
     private void CambiarAltura(float nuevaAltura)
     {
         // Cambiar la escala del cuerpo (solo eje Y para altura)
