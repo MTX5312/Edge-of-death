@@ -23,8 +23,9 @@ public class ScriptJugador : MonoBehaviour
     public float velocidadCambioAltura = 5f;
 
     [Header("Salto")]
-    public float fuerzaSalto = 8f;   // altura del salto
-    public float gravedad = -20f;    // fuerza de gravedad
+    public float fuerzaSalto = 10f;   // altura del salto
+    public float fuerzaDobleSalto = 8f; //  altura del doblesalto
+    public float gravedad = -15f;    // fuerza de gravedad
     private float velocidadVertical; // velocidad en eje Y
     private bool enSuelo = true;     // si está apoyado
     private int saltosRestantes = 2; // saltos disponibles
@@ -63,7 +64,7 @@ public class ScriptJugador : MonoBehaviour
         //salro ( ahora doble salto)
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            velocidadVertical = fuerzaSalto;
+            velocidadVertical = (saltosRestantes == 2) ? fuerzaSalto : fuerzaDobleSalto;// usa la fuerza del salto segun el caso 
             enSuelo = false;
             saltosRestantes--;//Descuenta 1 salto del total de saltos
         }
