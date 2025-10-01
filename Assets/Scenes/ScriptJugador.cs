@@ -22,6 +22,14 @@ public class ScriptJugador : MonoBehaviour
     public float alturaSlide = 1f;
     public float velocidadCambioAltura = 5f;
 
+    [Header("Salto")]
+    public float fuerzaSalto = 8f;   // altura del salto
+    public float gravedad = -20f;    // fuerza de gravedad
+    private float velocidadVertical; // velocidad en eje Y
+    private bool enSuelo = true;     // si está apoyado
+
+
+
     private void Start()
     {
         if (Body == null)
@@ -39,18 +47,38 @@ public class ScriptJugador : MonoBehaviour
         Movimiento();
         Deslizar();
 
+        // Aplicar gravedad
+         if (!enSuelo)
+        {
+            velocidadVertical += gravedad * Time.deltaTime;
+        }
+        
+        //salro
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+        {
+            velocidadVertical = fuerzaSalto;
+            enSuelo = false;
+        }
+
+        // Mover jugador con Y incluida
         Vector3 movimiento = new Vector3(x, 0, y).normalized;
 
         if (movimiento.sqrMagnitude > 0.01f)
         {
-            direccion = Body.TransformDirection(movimiento);
-            transform.Translate(direccion * velocidadActual * Time.deltaTime, Space.World);
+         direccion = Body.TransformDirection(movimiento);
+         transform.Translate((direccion * velocidadActual + Vector3.up * velocidadVertical) * Time.deltaTime, Space.World);
 
             if (camara != null && camara.camaraMovida)
             {
-                Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
+             Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
+             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
             }
+        }
+
+        else
+        {
+         // si no se mueve en XZ, aplicar solo la Y
+         transform.Translate(Vector3.up * velocidadVertical * Time.deltaTime, Space.World);
         }
     }
 
@@ -109,6 +137,17 @@ public class ScriptJugador : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("suelo"))
+        {
+            enSuelo = true;
+            velocidadVertical = 0;
+        }
+    }
+
+
     private void CambiarAltura(float nuevaAltura)
     {
         // Cambiar la escala del cuerpo (solo eje Y para altura)
