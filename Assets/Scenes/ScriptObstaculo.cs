@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ScriptObstaculo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        //Esto chequea si el objeto que chocó tiene el ScriptJugador
+        ScriptJugador jugador = collision.gameObject.GetComponent<ScriptJugador>();
+        if (jugador != null)
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        {
+            //Penaliza y reduce la velocidad a 20
+            jugador.velocidadActual = 20f;
+        }
     }
 }
