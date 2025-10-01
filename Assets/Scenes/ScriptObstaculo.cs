@@ -13,6 +13,8 @@ public class ScriptObstaculo : MonoBehaviour
         {
             //Penaliza y reduce la velocidad a 20
             jugador.velocidadActual = 20f;
+
+            Debug.Log("Jugador penalizado: velocidad reducida a 20");
         }
     }
 }
