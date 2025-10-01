@@ -61,6 +61,12 @@ public class ScriptJugador : MonoBehaviour
             }
         }
 
+                    // Aplicar gravedad
+         if (!enSuelo)
+        {
+            velocidadVertical += gravedad * Time.deltaTime;
+        }
+
     }
 
     private void Movimiento()
@@ -118,7 +124,7 @@ public class ScriptJugador : MonoBehaviour
             }
         }
     }
-    
+
     private void CambiarAltura(float nuevaAltura)
     {
         // Cambiar la escala del cuerpo (solo eje Y para altura)
