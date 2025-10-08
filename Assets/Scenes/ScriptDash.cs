@@ -3,14 +3,22 @@ using UnityEngine;
 
 public class ScriptDash : MonoBehaviour
 {
-    public float dashDistancia = 3f;
-    public float dashTiempo = 0.2f;
-    public float dashCooldown = 1f;
+    public float dashDistancia = 3f;       // Distancia total del dash
+    public float dashTiempo = 0.2f;        // Tiempo que dura el dash
+    public float dashCooldown = 1f;        // Tiempo entre dashes
     private float ultimoDash;
 
     public Transform Body;
 
     private bool dashing = false;
+
+    // Referencia al CharacterController
+    private CharacterController controller;
+
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
     void Update()
     {
@@ -36,18 +44,19 @@ public class ScriptDash : MonoBehaviour
         dashing = true;
         ultimoDash = Time.time;
 
-        Vector3 inicio = transform.position;
-        Vector3 destino = inicio + direccion * dashDistancia;
+        // Velocidad del dash (distancia / tiempo)
+        float dashVelocidad = dashDistancia / dashTiempo;
 
         float tiempo = 0f;
         while (tiempo < dashTiempo)
         {
-            transform.position = Vector3.Lerp(inicio, destino, tiempo / dashTiempo);
+            // Movimiento frame a frame usando el CharacterController
+            controller.Move(direccion * dashVelocidad * Time.deltaTime);
+
             tiempo += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = destino;
         dashing = false;
     }
 }

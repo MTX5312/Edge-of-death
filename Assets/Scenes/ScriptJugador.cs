@@ -20,22 +20,23 @@ public class ScriptJugador : MonoBehaviour
     public CapsuleCollider colJugador;
     public float alturaNormal = 2f;
     public float alturaSlide = 1f;
-    public float velocidadCambioAltura = 5f;
 
     [Header("Salto")]
-    public float fuerzaSalto = 10f;   // altura del salto
-    public float fuerzaDobleSalto = 8f; //  altura del doblesalto
-    public float gravedad = -15f;    // fuerza de gravedad
-    private float velocidadVertical; // velocidad en eje Y
-    private bool enSuelo = true;     // si está apoyado
-    private int saltosRestantes = 2; // saltos disponibles
+    public float fuerzaSalto = 10f;
+    public float fuerzaDobleSalto = 8f;
+    public float gravedad = -15f;
+    private float velocidadVertical;
+    private int saltosRestantes = 2;
 
-
+    // Nuevo: CharacterController
+    private CharacterController controller;
 
     private void Start()
     {
         if (Body == null)
             Body = transform;
+
+        controller = GetComponent<CharacterController>();
 
         if (colJugador == null)
             colJugador = GetComponent<CapsuleCollider>();
@@ -49,45 +50,44 @@ public class ScriptJugador : MonoBehaviour
         Movimiento();
         Deslizar();
 
-        // Aplicar gravedad
-        if (!enSuelo)
+        // --- Gravedad y salto ---
+        if (controller.isGrounded)
         {
-            velocidadVertical += gravedad * Time.deltaTime;
+            velocidadVertical = -1f; // Para mantenerlo en el suelo
+            saltosRestantes = 2;
         }
         else
         {
-            velocidadVertical = 0f; // reiniciar velocidad vertical en el suelo
-            saltosRestantes = 2;// reiniciar saltos disponibles cuando toca el piso 
-        
+            velocidadVertical += gravedad * Time.deltaTime;
         }
 
-        //salro ( ahora doble salto)
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            velocidadVertical = (saltosRestantes == 2) ? fuerzaSalto : fuerzaDobleSalto;// usa la fuerza del salto segun el caso 
-            enSuelo = false;
-            saltosRestantes--;//Descuenta 1 salto del total de saltos
+            velocidadVertical = (saltosRestantes == 2) ? fuerzaSalto : fuerzaDobleSalto;
+            saltosRestantes--;
         }
 
-        // Mover jugador con Y incluida
+        // --- Movimiento ---
         Vector3 movimiento = new Vector3(x, 0, y).normalized;
 
         if (movimiento.sqrMagnitude > 0.01f)
         {
-         direccion = Body.TransformDirection(movimiento);
-         transform.Translate((direccion * velocidadActual + Vector3.up * velocidadVertical) * Time.deltaTime, Space.World);
+            direccion = Body.TransformDirection(movimiento);
 
+            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            controller.Move(moveVector * Time.deltaTime);
+
+            // Rotación con cámara
             if (camara != null && camara.camaraMovida)
             {
-             Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
-             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
+                Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, 6f * Time.deltaTime);
             }
         }
-
         else
         {
-         // si no se mueve en XZ, aplicar solo la Y
-         transform.Translate(Vector3.up * velocidadVertical * Time.deltaTime, Space.World);
+            // Solo movimiento vertical si no hay input
+            controller.Move(Vector3.up * velocidadVertical * Time.deltaTime);
         }
     }
 
@@ -136,7 +136,9 @@ public class ScriptJugador : MonoBehaviour
         if (deslizando)
         {
             tiempoRestanteSlide -= Time.deltaTime;
-            transform.Translate(direccion * velocidadActual * Time.deltaTime, Space.World);
+            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            controller.Move(moveVector * Time.deltaTime);
+
             velocidadActual = Mathf.MoveTowards(velocidadActual, 20f, (velocidadExtra / duracionSlide) * Time.deltaTime);
 
             if (tiempoRestanteSlide <= 0f)
@@ -147,27 +149,16 @@ public class ScriptJugador : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("suelo"))
-        {
-            enSuelo = true;
-            velocidadVertical = 0;
-        }
-    }
-
-
     private void CambiarAltura(float nuevaAltura)
     {
-        // Cambiar la escala del cuerpo (solo eje Y para altura)
         Vector3 escala = Body.localScale;
         escala.y = nuevaAltura;
         Body.localScale = escala;
 
-        if (colJugador != null)
+        if (controller != null)
         {
-            colJugador.height = nuevaAltura;
-            colJugador.center = new Vector3(colJugador.center.x, nuevaAltura / 2f, colJugador.center.z);
+            controller.height = nuevaAltura;
+            controller.center = new Vector3(0, nuevaAltura / 2f, 0);
         }
     }
 }
