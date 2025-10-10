@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class DeathZoneScript : MonoBehaviour
 {
-    public Transform respawnPoint;
+    public static Vector3 currentRespawnPosition;
+    public Transform defaultRespawnPoint;
+
+    private void Start()
+    {
+        if (currentRespawnPosition == Vector3.zero && defaultRespawnPoint != null)
+        {
+            currentRespawnPosition = defaultRespawnPoint.position;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,15 +23,13 @@ public class DeathZoneScript : MonoBehaviour
 
             if (controller != null)
             {
-                // Deshabilitamos el CharacterController para poder teletransportar sin problemas
                 controller.enabled = false;
-                other.transform.position = respawnPoint.position;
+                other.transform.position = currentRespawnPosition;
                 controller.enabled = true;
             }
             else
             {
-                // Por si acaso el objeto tiene Rigidbody en vez de CharacterController
-                other.transform.position = respawnPoint.position;
+                other.transform.position = currentRespawnPosition;
 
                 Rigidbody rb = other.GetComponent<Rigidbody>();
                 if (rb != null)
@@ -32,7 +39,6 @@ public class DeathZoneScript : MonoBehaviour
                 }
             }
 
-            // Reiniciamos parámetros del jugador
             ScriptJugador playerScript = other.GetComponent<ScriptJugador>();
             if (playerScript != null)
             {
