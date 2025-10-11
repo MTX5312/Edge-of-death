@@ -6,8 +6,11 @@ public class CheckpointScript : MonoBehaviour
 {
     [Header("Referencias visuales")]
     public Renderer baseRenderer;
-    public Color inactiveColor = Color.gray;
-    public Color activeColor = Color.green;
+    public Renderer cylinderRenderer;
+    public Color baseInactiveColor = Color.gray;
+    public Color baseActiveColor = Color.green;
+    public Material lightInactiveColor;
+    public Material lightActiveColor;
 
     private bool isActive = false;
 
@@ -29,9 +32,15 @@ public class CheckpointScript : MonoBehaviour
         {
             baseRenderer = GetComponentInParent<Renderer>();
         }
+        if (cylinderRenderer == null)
+        {
+            cylinderRenderer = GetComponentInChildren<Renderer>();
+        }
 
         if (baseRenderer != null)
-            baseRenderer.material.color = inactiveColor;
+            baseRenderer.material.color = baseInactiveColor;
+        if (cylinderRenderer != null)
+            cylinderRenderer.material = lightInactiveColor;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,16 +59,18 @@ public class CheckpointScript : MonoBehaviour
     {
         foreach (CheckpointScript cp in allCheckpoints)
         {
-            if (cp != null && cp.baseRenderer != null)
+            if (cp != null && cp.baseRenderer != null && cp.cylinderRenderer != null)
             {
                 if (cp == this)
                 {
-                    cp.baseRenderer.material.color = activeColor;
+                    cp.baseRenderer.material.color = baseActiveColor;
+                    cp.cylinderRenderer.material = lightActiveColor;
                     cp.isActive = true;
                 }
                 else
                 {
-                    cp.baseRenderer.material.color = inactiveColor;
+                    cp.baseRenderer.material.color = baseInactiveColor;
+                    cp.cylinderRenderer.material = lightInactiveColor;
                     cp.isActive = false;
                 }
             }
