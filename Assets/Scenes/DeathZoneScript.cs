@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class DeathZoneScript : MonoBehaviour
 {
-    public Transform respawnPoint;
+    public static Vector3 currentRespawnPosition;
+    public Transform defaultRespawnPoint;
+
+    private void Start()
+    {
+        if (currentRespawnPosition == Vector3.zero && defaultRespawnPoint != null)
+        {
+            currentRespawnPosition = defaultRespawnPoint.position;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.position = respawnPoint.position;
+            CharacterController controller = other.GetComponent<CharacterController>();
 
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (controller != null)
             {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+                controller.enabled = false;
+                other.transform.position = currentRespawnPosition;
+                controller.enabled = true;
+            }
+            else
+            {
+                other.transform.position = currentRespawnPosition;
+
+                Rigidbody rb = other.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
             }
 
             ScriptJugador playerScript = other.GetComponent<ScriptJugador>();
