@@ -15,7 +15,7 @@ public class SpawnerOro : MonoBehaviour
     public float spawnInterval = 0.1f;
 
     public float destroyHeight = -5f;
-    public int piecesPerSpawn = 6;
+    public int piecesPerSpawn = 3;
 
     private void Start()
     {
@@ -37,7 +37,6 @@ public class SpawnerOro : MonoBehaviour
             Vector3 spawnPos = transform.position + randomOffset;
 
             GameObject gold = Instantiate(oroPrefab, spawnPos, Quaternion.identity);
-            gold.AddComponent<DestroyOnFall>().limitY = destroyHeight;
         }
     }
 
