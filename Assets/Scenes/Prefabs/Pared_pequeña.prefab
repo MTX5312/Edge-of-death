@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1111889474747216225}
   - component: {fileID: 2652281589003006134}
   - component: {fileID: 8793572063306705834}
-  - component: {fileID: 3911951690204881296}
   m_Layer: 0
   m_Name: "Pared_peque\xF1a"
   m_TagString: Untagged
@@ -369,16 +368,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &3911951690204881296
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873851956793446921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 2, z: 2}
-  m_Center: {x: 0.25, y: 1, z: 1}

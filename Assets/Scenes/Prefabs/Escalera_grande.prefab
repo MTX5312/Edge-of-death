@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5156275591483901762}
   - component: {fileID: 4134271542506582917}
   - component: {fileID: 8721708550077391747}
-  - component: {fileID: 8151148776822187815}
   m_Layer: 0
   m_Name: Escalera_grande
   m_TagString: Untagged
@@ -11988,16 +11987,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &8151148776822187815
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356763920769742903}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 7.5, y: 5, z: 7.5}

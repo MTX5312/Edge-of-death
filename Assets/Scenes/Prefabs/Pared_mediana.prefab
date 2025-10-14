@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5132487040765676786}
   - component: {fileID: 7620025999143962680}
   - component: {fileID: 2276240663093599758}
-  - component: {fileID: 5074169786030795122}
   m_Layer: 0
   m_Name: Pared_mediana
   m_TagString: Untagged
@@ -369,16 +368,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &5074169786030795122
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159681702198828974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 5, z: 5}
-  m_Center: {x: 0.25, y: 2.5, z: 2.5}
