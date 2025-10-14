@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7053462612954347689}
   - component: {fileID: 5987312683598012707}
   - component: {fileID: 1724744571046643048}
+  - component: {fileID: 1901463949029292497}
   m_Layer: 0
   m_Name: "Piso_peque\xF1o"
   m_TagString: Untagged
@@ -344,3 +345,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &1901463949029292497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978424476226302989}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.1, z: 2}
+  m_Center: {x: 1, y: 0.049999952, z: 1}
