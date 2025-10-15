@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ZonaGravedad : MonoBehaviour
 {
-    public float gravityMultiplier = 4f; // Multiplicador de gravedad ( 2x para caída más rápida).
-    public float jumpReductionFactor = 0.9f; // Reducción de la fuerza de salto ( 70% de la normal).
-    public float speedReductionFactor = 0.8f; // Reducción de la velocidad ( 60% de la normal).
+    public float gravityMultiplier = 2f; // Multiplicador de gravedad ( 2x para caída más rápida).
+    public float jumpReductionFactor = 0.7f; // Reducción de la fuerza de salto ( 70% de la normal).
+    public float speedReductionFactor = 0.6f; // Reducción de la velocidad ( 60% de la normal).
 
     private void OnTriggerEnter(Collider other)
     {
