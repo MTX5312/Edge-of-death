@@ -24,11 +24,15 @@ public class ScriptJugador : MonoBehaviour
     [Header("Salto")]
     public float fuerzaSalto = 10f;
     public float fuerzaDobleSalto = 8f;
-    public float gravedad = -15f;
+    public float gravedad = -10f;
     private float velocidadVertical;
     private int saltosRestantes = 2;
 
-    // Nuevo: CharacterController
+    // Variables para la zona de Gula
+    private float currentGravityMultiplier = 1f; // Multiplicador de gravedad (1 = normal)
+    private float currentJumpReductionFactor = 1f; // Reducción de salto (1 = normal)
+    private float currentSpeedReductionFactor = 1f; // Reducción de velocidad (1 = normal)
+    private bool isInHighGravityZone = false; // Indica si el jugador está en la zona de alta gravedad
     private CharacterController controller;
 
     private void Start()
@@ -50,10 +54,9 @@ public class ScriptJugador : MonoBehaviour
         Movimiento();
         Deslizar();
 
-        // --- Gravedad y salto ---
         if (controller.isGrounded)
         {
-            velocidadVertical = -1f; // Para mantenerlo en el suelo
+            velocidadVertical = -1f;
             saltosRestantes = 2;
         }
         else
@@ -63,21 +66,22 @@ public class ScriptJugador : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            velocidadVertical = (saltosRestantes == 2) ? fuerzaSalto : fuerzaDobleSalto;
+            // Aplicar reducción de salto si está en la zona de gula
+            float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
+            velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
         }
 
-        // --- Movimiento ---
         Vector3 movimiento = new Vector3(x, 0, y).normalized;
 
         if (movimiento.sqrMagnitude > 0.01f)
         {
             direccion = Body.TransformDirection(movimiento);
 
-            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            // Aplicar reducción de velocidad so esta en zona gula
+            Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
-            // Rotación con cámara
             if (camara != null && camara.camaraMovida)
             {
                 Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
@@ -86,7 +90,6 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
-            // Solo movimiento vertical si no hay input
             controller.Move(Vector3.up * velocidadVertical * Time.deltaTime);
         }
     }
@@ -136,7 +139,8 @@ public class ScriptJugador : MonoBehaviour
         if (deslizando)
         {
             tiempoRestanteSlide -= Time.deltaTime;
-            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            // Aplicar reducción de velocidad durante el deslizamiento si gula
+            Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
             velocidadActual = Mathf.MoveTowards(velocidadActual, 20f, (velocidadExtra / duracionSlide) * Time.deltaTime);
@@ -160,5 +164,22 @@ public class ScriptJugador : MonoBehaviour
             controller.height = nuevaAltura;
             controller.center = new Vector3(0, nuevaAltura / 2f, 0);
         }
+    }
+
+    // Métodos para la zona de Gula
+    public void EnterHighGravityZone(float gravityMultiplier, float jumpReductionFactor, float speedReductionFactor)
+    {
+        currentGravityMultiplier = gravityMultiplier;
+        currentJumpReductionFactor = jumpReductionFactor;
+        currentSpeedReductionFactor = speedReductionFactor;
+        isInHighGravityZone = true;
+    }
+
+    public void ExitHighGravityZone()
+    {
+        currentGravityMultiplier = 1f;
+        currentJumpReductionFactor = 1f;
+        currentSpeedReductionFactor = 1f;
+        isInHighGravityZone = false;
     }
 }

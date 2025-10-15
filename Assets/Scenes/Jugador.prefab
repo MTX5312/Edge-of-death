@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1321997975793236556}
   - component: {fileID: 7164485426410153258}
   - component: {fileID: 1179189316474435762}
+  - component: {fileID: -2951884039222437986}
   - component: {fileID: 4953307941518817543}
   m_Layer: 0
   m_Name: Jugador
@@ -274,6 +275,22 @@ MonoBehaviour:
   dashTiempo: 0.1
   dashCooldown: 1
   Body: {fileID: 5477460739864194882}
+--- !u!114 &-2951884039222437986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953307940873176761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fb6bc64de683d4cbc98776eae2b6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanciaDeteccion: 0.8
+  alturaDeteccion: 1.5
+  velocidadEscalada: 3
+  alturaSubida: 2
 --- !u!143 &4953307941518817543
 CharacterController:
   m_ObjectHideFlags: 0
