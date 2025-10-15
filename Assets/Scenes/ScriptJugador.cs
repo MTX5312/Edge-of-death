@@ -59,6 +59,7 @@ public class ScriptJugador : MonoBehaviour
         {
             x = -x; // Invierte izquierda/derecha (A → derecha, D → izquierda)
             y = -y; // Invierte adelante/atrás (W → atrás, S → adelante)
+            Debug.Log("Controles invertidos: x=" + x + ", y=" + y);
         }
 
         Movimiento();
@@ -197,11 +198,11 @@ public class ScriptJugador : MonoBehaviour
     // Métodos para la zona de inversión
     public void EnterInversionZone()
     {
-        isInInversionZone = true;
+        isInZonaTraicion = true;
     }
 
     public void ExitInversionZone()
     {
-        isInInversionZone = false;
+        isInZonaTraicion = false;
     }
 }

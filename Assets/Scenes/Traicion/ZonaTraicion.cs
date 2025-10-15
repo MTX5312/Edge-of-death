@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZonaInversion : MonoBehaviour
+public class ZonaTraicion : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            ScriptJugador player = other.GetComponent<ScriptJugador>();
-            if (player != null)
+            ScriptJugador Player = other.GetComponent<ScriptJugador>();
+            if (Player != null)
             {
-                player.EnterInversionZone();
+                Player.EnterInversionZone();
+                Debug.Log("Entrando en ZonaInversion");
             }
         }
     }
@@ -20,10 +21,11 @@ public class ZonaInversion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ScriptJugador player = other.GetComponent<ScriptJugador>();
-            if (player != null)
+            ScriptJugador Player = other.GetComponent<ScriptJugador>();
+            if (Player != null)
             {
-                player.ExitInversionZone();
+                Player.ExitInversionZone();
+                Debug.Log("Saliendo de ZonaInversion");
             }
         }
     }
