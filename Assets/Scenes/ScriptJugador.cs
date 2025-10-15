@@ -28,6 +28,7 @@ public class ScriptJugador : MonoBehaviour
     private float velocidadVertical;
     private int saltosRestantes = 2;
 
+    // Variables para la zona de Gula
     private CharacterController controller;
 
     private void Start()
@@ -61,7 +62,9 @@ public class ScriptJugador : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            velocidadVertical = (saltosRestantes == 2) ? fuerzaSalto : fuerzaDobleSalto;
+            // Aplicar reducción de salto si está en la zona de gula
+            float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
+            velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
         }
 
