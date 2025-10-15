@@ -139,7 +139,8 @@ public class ScriptJugador : MonoBehaviour
         if (deslizando)
         {
             tiempoRestanteSlide -= Time.deltaTime;
-            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            // Aplicar reducción de velocidad durante el deslizamiento si gula
+            Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
             velocidadActual = Mathf.MoveTowards(velocidadActual, 20f, (velocidadExtra / duracionSlide) * Time.deltaTime);
