@@ -28,7 +28,6 @@ public class ScriptJugador : MonoBehaviour
     private float velocidadVertical;
     private int saltosRestantes = 2;
 
-    // Nuevo: CharacterController
     private CharacterController controller;
 
     private void Start()
@@ -50,10 +49,9 @@ public class ScriptJugador : MonoBehaviour
         Movimiento();
         Deslizar();
 
-        // --- Gravedad y salto ---
         if (controller.isGrounded)
         {
-            velocidadVertical = -1f; // Para mantenerlo en el suelo
+            velocidadVertical = -1f;
             saltosRestantes = 2;
         }
         else
@@ -67,7 +65,6 @@ public class ScriptJugador : MonoBehaviour
             saltosRestantes--;
         }
 
-        // --- Movimiento ---
         Vector3 movimiento = new Vector3(x, 0, y).normalized;
 
         if (movimiento.sqrMagnitude > 0.01f)
@@ -77,7 +74,6 @@ public class ScriptJugador : MonoBehaviour
             Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
-            // Rotación con cámara
             if (camara != null && camara.camaraMovida)
             {
                 Quaternion rotacionObjetivo = Quaternion.LookRotation(new Vector3(direccion.x, 0, direccion.z));
@@ -86,7 +82,6 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
-            // Solo movimiento vertical si no hay input
             controller.Move(Vector3.up * velocidadVertical * Time.deltaTime);
         }
     }
