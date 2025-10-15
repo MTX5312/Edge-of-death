@@ -33,6 +33,9 @@ public class ScriptJugador : MonoBehaviour
     private float currentJumpReductionFactor = 1f; // Reducción de salto (1 = normal)
     private float currentSpeedReductionFactor = 1f; // Reducción de velocidad (1 = normal)
     private bool isInHighGravityZone = false; // Indica si el jugador está en la zona de alta gravedad
+    
+    // Variables para la zona de inversión
+    private bool isInZonaTraicion = false; // Indica si el jugador está en la zona de traicion
     private CharacterController controller;
 
     private void Start()
@@ -51,6 +54,14 @@ public class ScriptJugador : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
+        //Invertir controles si está en la zona de inversión
+        if (isInZonaTraicion)
+        {
+            x = -x; // Invierte izquierda/derecha (A → derecha, D → izquierda)
+            y = -y; // Invierte adelante/atrás (W → atrás, S → adelante)
+            Debug.Log("Controles invertidos: x=" + x + ", y=" + y);
+        }
+
         Movimiento();
         Deslizar();
 
@@ -61,12 +72,13 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
-            velocidadVertical += gravedad * Time.deltaTime;
+            // Aplicar gravedad con multiplicador
+            velocidadVertical += gravedad * currentGravityMultiplier * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            // Aplicar reducción de salto si está en la zona de gula
+            // Aplicar reducción de salto si está en la zona de gula ( en zona traicion no se ve afectado)
             float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
             velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
@@ -181,5 +193,16 @@ public class ScriptJugador : MonoBehaviour
         currentJumpReductionFactor = 1f;
         currentSpeedReductionFactor = 1f;
         isInHighGravityZone = false;
+    }
+
+    // Métodos para la zona de inversión
+    public void EnterInversionZone()
+    {
+        isInZonaTraicion = true;
+    }
+
+    public void ExitInversionZone()
+    {
+        isInZonaTraicion = false;
     }
 }
