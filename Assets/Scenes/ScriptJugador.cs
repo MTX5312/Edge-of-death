@@ -54,6 +54,13 @@ public class ScriptJugador : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
+        //Invertir controles si está en la zona de inversión
+        if (isInZonaTraicion)
+        {
+            x = -x; // Invierte izquierda/derecha (A → derecha, D → izquierda)
+            y = -y; // Invierte adelante/atrás (W → atrás, S → adelante)
+        }
+
         Movimiento();
         Deslizar();
 
@@ -64,12 +71,10 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
-            velocidadVertical += gravedad * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            // Aplicar reducción de salto si está en la zona de gula
             float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
             velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
