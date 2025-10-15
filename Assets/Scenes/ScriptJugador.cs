@@ -71,10 +71,13 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
+            // Aplicar gravedad con multiplicador
+            velocidadVertical += gravedad * currentGravityMultiplier * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
+            // Aplicar reducción de salto si está en la zona de gula ( en zona traicion no se ve afectado)
             float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
             velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
