@@ -5,36 +5,47 @@ public class VientoVelocidad : MonoBehaviour
     public Rigidbody jugadorRB;       // Rigidbody del jugador
     public ParticleSystem viento50;   // Efecto de viento cuando pasa 50
     public ParticleSystem viento100;  // Efecto de viento cuando pasa 100
+    public Transform camaraJugador;   // Cámara del jugador
+
+    [Header("Ajustes de posicionamiento")]
+    public float distanciaFrontal = 2f; // Distancia delante de la cámara
+    public float alturaOffset = 0f;     // Ajuste vertical si lo necesitás
 
     void Update()
     {
-        // Calculamos la velocidad actual (sin dirección)
         float velocidadActual = jugadorRB.velocity.magnitude;
 
-        // Si está entre 50 y 99 → activar viento50
+        // Control de activación
         if (velocidadActual >= 50f && velocidadActual < 100f)
         {
-            if (!viento50.isPlaying)
-                viento50.Play();
-            if (viento100.isPlaying)
-                viento100.Stop();
+            if (!viento50.isPlaying) viento50.Play();
+            if (viento100.isPlaying) viento100.Stop();
         }
-        // Si alcanza o supera 100 → activar viento100
         else if (velocidadActual >= 100f)
         {
-            if (!viento100.isPlaying)
-                viento100.Play();
-            if (viento50.isPlaying)
-                viento50.Stop();
+            if (!viento100.isPlaying) viento100.Play();
+            if (viento50.isPlaying) viento50.Stop();
         }
-        // Si baja de 50 → apagar ambos
         else
         {
-            if (viento50.isPlaying)
-                viento50.Stop();
-            if (viento100.isPlaying)
-                viento100.Stop();
+            if (viento50.isPlaying) viento50.Stop();
+            if (viento100.isPlaying) viento100.Stop();
         }
+
+        // Actualizamos la posición y rotación de las partículas delante de la cámara
+        ActualizarPosicionViento(viento50);
+        ActualizarPosicionViento(viento100);
+    }
+
+    void ActualizarPosicionViento(ParticleSystem viento)
+    {
+        if (viento == null) return;
+
+        // Calculamos una posición delante de la cámara
+        Vector3 frente = camaraJugador.forward;
+        Vector3 posAdelante = camaraJugador.position + frente * distanciaFrontal + Vector3.up * alturaOffset;
+
+        viento.transform.position = posAdelante;
+        viento.transform.rotation = camaraJugador.rotation;
     }
 }
-
