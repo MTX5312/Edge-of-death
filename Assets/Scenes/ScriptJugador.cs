@@ -29,6 +29,10 @@ public class ScriptJugador : MonoBehaviour
     private int saltosRestantes = 2;
 
     // Variables para la zona de Gula
+    private float currentGravityMultiplier = 1f; // Multiplicador de gravedad (1 = normal)
+    private float currentJumpReductionFactor = 1f; // Reducción de salto (1 = normal)
+    private float currentSpeedReductionFactor = 1f; // Reducción de velocidad (1 = normal)
+
     private CharacterController controller;
 
     private void Start()
@@ -74,7 +78,8 @@ public class ScriptJugador : MonoBehaviour
         {
             direccion = Body.TransformDirection(movimiento);
 
-            Vector3 moveVector = direccion * velocidadActual + Vector3.up * velocidadVertical;
+            // Aplicar reducción de velocidad so esta en zona gula
+            Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
             if (camara != null && camara.camaraMovida)
