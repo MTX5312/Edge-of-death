@@ -24,7 +24,7 @@ public class ScriptJugador : MonoBehaviour
     [Header("Salto")]
     public float fuerzaSalto = 10f;
     public float fuerzaDobleSalto = 8f;
-    public float gravedad = -15f;
+    public float gravedad = -10f;
     private float velocidadVertical;
     private int saltosRestantes = 2;
 
@@ -155,5 +155,22 @@ public class ScriptJugador : MonoBehaviour
             controller.height = nuevaAltura;
             controller.center = new Vector3(0, nuevaAltura / 2f, 0);
         }
+    }
+
+    // Métodos para la zona de Gula
+    public void EnterHighGravityZone(float gravityMultiplier, float jumpReductionFactor, float speedReductionFactor)
+    {
+        currentGravityMultiplier = gravityMultiplier;
+        currentJumpReductionFactor = jumpReductionFactor;
+        currentSpeedReductionFactor = speedReductionFactor;
+        isInHighGravityZone = true;
+    }
+
+    public void ExitHighGravityZone()
+    {
+        currentGravityMultiplier = 1f;
+        currentJumpReductionFactor = 1f;
+        currentSpeedReductionFactor = 1f;
+        isInHighGravityZone = false;
     }
 }
