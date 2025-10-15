@@ -32,7 +32,7 @@ public class ScriptJugador : MonoBehaviour
     private float currentGravityMultiplier = 1f; // Multiplicador de gravedad (1 = normal)
     private float currentJumpReductionFactor = 1f; // Reducción de salto (1 = normal)
     private float currentSpeedReductionFactor = 1f; // Reducción de velocidad (1 = normal)
-
+    private bool isInHighGravityZone = false; // Indica si el jugador está en la zona de alta gravedad
     private CharacterController controller;
 
     private void Start()
