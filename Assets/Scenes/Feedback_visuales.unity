@@ -9562,7 +9562,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9615,7 +9615,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10107,7 +10107,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -10313,7 +10313,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 60
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14195,7 +14195,7 @@ Transform:
   m_GameObject: {fileID: 438560942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4953307940902688740}
@@ -24507,7 +24507,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 6
+  m_LengthScale: 3
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
@@ -24613,7 +24613,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -24666,7 +24666,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -25158,7 +25158,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -29246,7 +29246,7 @@ Transform:
   m_GameObject: {fileID: 1153550882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4953307940902688740}
@@ -52785,6 +52785,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5477460739864194882, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
   m_PrefabInstance: {fileID: 4953307940902688739}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &4953307940902688741 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5374692721638170256, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+  m_PrefabInstance: {fileID: 4953307940902688739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4953307940902688742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 210681008662401664, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+  m_PrefabInstance: {fileID: 4953307940902688739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4953307940902688743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953307940902688742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04db68af75e2062408d98c8ab31a3ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugadorRB: {fileID: 4953307940902688741}
+  viento50: {fileID: 438560944}
+  viento100: {fileID: 1153550884}
 --- !u!1001 &5339851594046112205
 PrefabInstance:
   m_ObjectHideFlags: 0
