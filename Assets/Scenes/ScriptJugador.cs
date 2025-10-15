@@ -185,4 +185,15 @@ public class ScriptJugador : MonoBehaviour
         currentSpeedReductionFactor = 1f;
         isInHighGravityZone = false;
     }
+
+    // Métodos para la zona de inversión
+    public void EnterInversionZone()
+    {
+        isInInversionZone = true;
+    }
+
+    public void ExitInversionZone()
+    {
+        isInInversionZone = false;
+    }
 }
