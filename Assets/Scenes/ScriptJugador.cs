@@ -8,6 +8,10 @@ public class ScriptJugador : MonoBehaviour
     public float velocidadActual = 20f;
     private Vector3 direccion;
 
+    [Header("Frenado / Patinaje")]
+    [Range(0f, 10f)] public float suavidadFrenado = 3f;
+    public float velocidadUmbral = 0.1f;
+
     [Header("Deslizar")]
     public float tiempoRestanteSlide = 0f;
     bool deslizando = false;
@@ -111,7 +115,6 @@ public class ScriptJugador : MonoBehaviour
         float aceleracion = 3f;
         float velocidadMaxima = 100f;
         float velocidadMinima = 20f;
-        float desaceleracion = 5f;
         float freno = 20f;
 
         if (velocidadActual >= 50f)
@@ -121,20 +124,25 @@ public class ScriptJugador : MonoBehaviour
         else
             aceleracion = 2.5f;
 
-        if (Input.GetKey(KeyCode.W) && controller.isGrounded)
+        bool presionandoAdelante = Input.GetKey(KeyCode.W);
+        bool presionandoAtras = Input.GetKey(KeyCode.S);
+
+        if (presionandoAdelante && controller.isGrounded)
         {
             if (velocidadActual < velocidadMaxima)
                 velocidadActual += aceleracion * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S) && controller.isGrounded)
+        else if (presionandoAtras && controller.isGrounded)
         {
             if (velocidadActual > velocidadMinima)
                 velocidadActual -= freno * Time.deltaTime;
         }
         else if (controller.isGrounded)
         {
-            if (velocidadActual > velocidadMinima)
-                velocidadActual -= desaceleracion * Time.deltaTime;
+            velocidadActual = Mathf.Lerp(velocidadActual, velocidadMinima, Time.deltaTime * suavidadFrenado);
+
+            if (velocidadActual - velocidadMinima < velocidadUmbral)
+                velocidadActual = velocidadMinima;
         }
     }
 
