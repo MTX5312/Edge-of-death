@@ -114,17 +114,17 @@ public class ScriptJugador : MonoBehaviour
         float desaceleracion = 5f;
         float freno = 20f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && controller.isGrounded)
         {
             if (velocidadActual < velocidadMaxima)
                 velocidadActual += aceleracion * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) && controller.isGrounded)
         {
             if (velocidadActual > velocidadMinima)
                 velocidadActual -= freno * Time.deltaTime;
         }
-        else
+        else if (controller.isGrounded)
         {
             if (velocidadActual > velocidadMinima)
                 velocidadActual -= desaceleracion * Time.deltaTime;
