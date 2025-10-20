@@ -108,11 +108,18 @@ public class ScriptJugador : MonoBehaviour
 
     private void Movimiento()
     {
-        float aceleracion = 5f;
+        float aceleracion = 3f;
         float velocidadMaxima = 100f;
         float velocidadMinima = 20f;
         float desaceleracion = 5f;
         float freno = 20f;
+
+        if (velocidadActual >= 50f)
+            aceleracion = 3f;
+        else if (velocidadActual >= 80f)
+            aceleracion = 3.5f;
+        else
+            aceleracion = 2.5f;
 
         if (Input.GetKey(KeyCode.W) && controller.isGrounded)
         {
@@ -134,7 +141,7 @@ public class ScriptJugador : MonoBehaviour
     private void Deslizar()
     {
         float duracionSlide = 1f;
-        float velocidadExtra = 10f;
+        float velocidadExtra = 6f;
         float cooldownSlide = 1f;
         float tiempoUltimoSlide = -10;
 
@@ -151,7 +158,6 @@ public class ScriptJugador : MonoBehaviour
         if (deslizando)
         {
             tiempoRestanteSlide -= Time.deltaTime;
-            // Aplicar reducción de velocidad durante el deslizamiento si gula
             Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
