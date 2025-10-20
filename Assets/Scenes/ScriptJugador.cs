@@ -7,6 +7,7 @@ public class ScriptJugador : MonoBehaviour
     [Header("Movimiento")]
     public float velocidadActual = 20f;
     private Vector3 direccion;
+    private Vector3 inputMovimiento; // ← Guarda el input ya invertido
 
     [Header("Deslizar")]
     public float tiempoRestanteSlide = 0f;
@@ -28,14 +29,18 @@ public class ScriptJugador : MonoBehaviour
     private float velocidadVertical;
     private int saltosRestantes = 2;
 
+    [Header("Frenado / Patinaje")]
+    [Range(0f, 10f)] public float suavidadFrenado = 3f; // Controla qué tan rápido se detiene
+    public float velocidadUmbral = 0.1f; // Velocidad mínima para detener por completo
+
     // Variables para la zona de Gula
-    private float currentGravityMultiplier = 1f; // Multiplicador de gravedad (1 = normal)
-    private float currentJumpReductionFactor = 1f; // Reducción de salto (1 = normal)
-    private float currentSpeedReductionFactor = 1f; // Reducción de velocidad (1 = normal)
-    private bool isInHighGravityZone = false; // Indica si el jugador está en la zona de alta gravedad
-    
+    private float currentGravityMultiplier = 1f;
+    private float currentJumpReductionFactor = 1f;
+    private float currentSpeedReductionFactor = 1f;
+    private bool isInHighGravityZone = false;
+
     // Variables para la zona de inversión
-    private bool isInZonaTraicion = false; // Indica si el jugador está en la zona de traicion
+    public bool isInZonaTraicion = false;
     private CharacterController controller;
 
     private void Start()
@@ -54,17 +59,20 @@ public class ScriptJugador : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
-        //Invertir controles si está en la zona de inversión
+        // Aplicar inversión de controles si está en la zona de traición
         if (isInZonaTraicion)
         {
-            x = -x; // Invierte izquierda/derecha (A → derecha, D → izquierda)
-            y = -y; // Invierte adelante/atrás (W → atrás, S → adelante)
-            Debug.Log("Controles invertidos: x=" + x + ", y=" + y);
+            x = -x;
+            y = -y;
         }
+
+        // Guardamos el input global (ya invertido si corresponde)
+        inputMovimiento = new Vector3(x, 0, y).normalized;
 
         Movimiento();
         Deslizar();
 
+        // Manejo de saltos y gravedad
         if (controller.isGrounded)
         {
             velocidadVertical = -1f;
@@ -78,19 +86,16 @@ public class ScriptJugador : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            // Aplicar reducción de salto si está en la zona de gula ( en zona traicion no se ve afectado)
             float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
             velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
         }
 
-        Vector3 movimiento = new Vector3(x, 0, y).normalized;
-
-        if (movimiento.sqrMagnitude > 0.01f)
+        // Movimiento horizontal
+        if (inputMovimiento.sqrMagnitude > 0.01f)
         {
-            direccion = Body.TransformDirection(movimiento);
+            direccion = Body.TransformDirection(inputMovimiento);
 
-            // Aplicar reducción de velocidad so esta en zona gula
             Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
@@ -108,41 +113,54 @@ public class ScriptJugador : MonoBehaviour
 
     private void Movimiento()
     {
-        float aceleracion = 5f;
+        float aceleracion = 3f;
         float velocidadMaxima = 100f;
         float velocidadMinima = 20f;
         float desaceleracion = 5f;
         float freno = 20f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (velocidadActual >= 50f)
+            aceleracion = 3f;
+        else if (velocidadActual >= 80f)
+            aceleracion = 3.5f;
+        else
+            aceleracion = 2.5f;
+
+        // Usamos el input ya invertido
+        bool moviendoAdelante = inputMovimiento.z > 0.1f;
+        bool moviendoAtras = inputMovimiento.z < -0.1f;
+
+        if (moviendoAdelante && controller.isGrounded)
         {
             if (velocidadActual < velocidadMaxima)
                 velocidadActual += aceleracion * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (moviendoAtras && controller.isGrounded)
         {
             if (velocidadActual > velocidadMinima)
                 velocidadActual -= freno * Time.deltaTime;
         }
-        else
+        else if (controller.isGrounded)
         {
-            if (velocidadActual > velocidadMinima)
-                velocidadActual -= desaceleracion * Time.deltaTime;
+            // Aplicamos frenado suave (patinaje)
+            velocidadActual = Mathf.Lerp(velocidadActual, velocidadMinima, Time.deltaTime * suavidadFrenado);
+            if (velocidadActual - velocidadMinima < velocidadUmbral)
+                velocidadActual = velocidadMinima;
         }
     }
 
     private void Deslizar()
     {
         float duracionSlide = 1f;
-        float velocidadExtra = 10f;
+        float velocidadExtra = 6f;
         float cooldownSlide = 1f;
         float tiempoUltimoSlide = -10;
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKey(KeyCode.W) && !deslizando && Time.time > tiempoUltimoSlide + cooldownSlide)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && inputMovimiento.z > 0.1f && !deslizando && Time.time > tiempoUltimoSlide + cooldownSlide)
         {
             deslizando = true;
             velocidadActual += velocidadExtra;
-            direccion = transform.forward;
+            direccion = Body.TransformDirection(inputMovimiento); // Respeta inversión
             tiempoRestanteSlide = duracionSlide;
             tiempoUltimoSlide = Time.time;
             CambiarAltura(alturaSlide);
@@ -151,7 +169,6 @@ public class ScriptJugador : MonoBehaviour
         if (deslizando)
         {
             tiempoRestanteSlide -= Time.deltaTime;
-            // Aplicar reducción de velocidad durante el deslizamiento si gula
             Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
@@ -178,7 +195,9 @@ public class ScriptJugador : MonoBehaviour
         }
     }
 
-    // Métodos para la zona de Gula
+    // ----------------- ZONAS ESPECIALES -----------------
+
+    // Zona de Gula
     public void EnterHighGravityZone(float gravityMultiplier, float jumpReductionFactor, float speedReductionFactor)
     {
         currentGravityMultiplier = gravityMultiplier;
@@ -195,7 +214,7 @@ public class ScriptJugador : MonoBehaviour
         isInHighGravityZone = false;
     }
 
-    // Métodos para la zona de inversión
+    // Zona de Traición
     public void EnterInversionZone()
     {
         isInZonaTraicion = true;
