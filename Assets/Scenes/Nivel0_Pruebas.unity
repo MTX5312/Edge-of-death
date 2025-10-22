@@ -76574,15 +76574,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 978697508593157020, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -116
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 978697508593157020, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 978697508593157020, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -165.6
+      value: -86
       objectReference: {fileID: 0}
     - target: {fileID: 4953307940873176761, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_Name
