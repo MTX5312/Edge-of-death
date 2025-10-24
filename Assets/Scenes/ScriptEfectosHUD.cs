@@ -11,10 +11,10 @@ public class ScriptEfectosHUD : MonoBehaviour
     public ScriptDash dash;
 
     [Header("Configuración de efectos")]
-    public float duracionDash = 0.2f;
-    public float duracionSlide = 0.3f;
-    public float alphaMaxDash = 0.6f;
-    public float alphaMaxSlide = 0.6f;
+    public float duracionDash = 0.8f;
+    public float duracionSlide = 1f;
+    public float alphaMaxDash = 1f;
+    public float alphaMaxSlide = 2f;
     public Color colorDash = Color.white;
     public Color colorSlide = Color.cyan;
 
