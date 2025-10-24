@@ -1,32 +1,47 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class ScriptDash : MonoBehaviour
 {
+    [Header("Dash")]
     public float dashDistancia = 3f;       // Distancia total del dash
     public float dashTiempo = 0.2f;        // Tiempo que dura el dash
     public float dashCooldown = 1f;        // Tiempo entre dashes
     private float ultimoDash;
 
+    [Header("Referencias")]
     public Transform Body;
+    public ScriptJugador jugador;          // ← Referencia al script del jugador
+    public System.Action OnDash;
 
     private bool dashing = false;
-
-    // Referencia al CharacterController
     private CharacterController controller;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        // Si no se asigna desde el inspector, lo buscamos en el mismo objeto
+        if (jugador == null)
+            jugador = GetComponent<ScriptJugador>();
     }
 
     void Update()
     {
+        // No hacer dash si ya está dashing o en cooldown
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > ultimoDash + dashCooldown && !dashing)
         {
-            // Leer la direcci�n de movimiento
+            OnDash?.Invoke();
+            // Leer la dirección de movimiento
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
+
+            // Aplicar inversión de controles si está en la zona de traición
+            if (jugador != null && jugador.isInZonaTraicion)
+            {
+                x = -x;
+                y = -y;
+            }
 
             Vector3 movimiento = new Vector3(x, 0, y).normalized;
 
@@ -50,9 +65,7 @@ public class ScriptDash : MonoBehaviour
         float tiempo = 0f;
         while (tiempo < dashTiempo)
         {
-            // Movimiento frame a frame usando el CharacterController
             controller.Move(direccion * dashVelocidad * Time.deltaTime);
-
             tiempo += Time.deltaTime;
             yield return null;
         }
@@ -60,4 +73,3 @@ public class ScriptDash : MonoBehaviour
         dashing = false;
     }
 }
-

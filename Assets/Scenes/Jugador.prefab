@@ -5074,6 +5074,9 @@ MonoBehaviour:
   fuerzaSalto: 10
   fuerzaDobleSalto: 12
   gravedad: -15
+  suavidadFrenado: 3
+  velocidadUmbral: 0.1
+  isInZonaTraicion: 0
 --- !u!114 &978697508593157010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,6 +5093,7 @@ MonoBehaviour:
   dashTiempo: 0.1
   dashCooldown: 1
   Body: {fileID: 978697508593157020}
+  jugador: {fileID: 0}
 --- !u!114 &978697508593157009
 MonoBehaviour:
   m_ObjectHideFlags: 0
