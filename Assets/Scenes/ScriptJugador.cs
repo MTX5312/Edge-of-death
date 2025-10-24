@@ -12,6 +12,7 @@ public class ScriptJugador : MonoBehaviour
     [Header("Deslizar")]
     public float tiempoRestanteSlide = 0f;
     bool deslizando = false;
+    public System.Action OnSlide;
 
     [Header("Camara")]
     public ScriptCamara camara;
@@ -159,6 +160,7 @@ public class ScriptJugador : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl) && inputMovimiento.z > 0.1f && !deslizando && Time.time > tiempoUltimoSlide + cooldownSlide)
         {
             deslizando = true;
+            OnSlide?.Invoke();
             velocidadActual += velocidadExtra;
             direccion = Body.TransformDirection(inputMovimiento); // Respeta inversión
             tiempoRestanteSlide = duracionSlide;
