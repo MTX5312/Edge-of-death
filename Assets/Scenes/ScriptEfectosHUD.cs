@@ -18,6 +18,21 @@ public class ScriptEfectosHUD : MonoBehaviour
     public Color colorDash = Color.white;
     public Color colorSlide = Color.cyan;
 
+    [Header("Efectos de sonido")]
+    public AudioSource audioSource; // Si no se asigna, se creará automáticamente
+    public AudioClip sonidoDash;    // Sonido para el dash
+    public AudioClip sonidoSlide;   // Sonido para el slide
+
+    private void Awake()
+    {
+        // Crear AudioSource si no está asignado
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false; // Evitar que reproduzca al iniciar
+        }
+    }
+
     private void Start()
     {
         // Desactivar imágenes al inicio
@@ -26,7 +41,7 @@ public class ScriptEfectosHUD : MonoBehaviour
         if (slideEffect != null)
             slideEffect.gameObject.SetActive(false);
 
-        // Suscribirse a eventos del dash y del jugador
+        // Suscribirse a eventos
         if (dash != null)
             dash.OnDash += MostrarEfectoDash;
 
@@ -36,7 +51,7 @@ public class ScriptEfectosHUD : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Desuscribirse al destruir el objeto (buena práctica)
+        // Desuscribirse
         if (dash != null)
             dash.OnDash -= MostrarEfectoDash;
 
@@ -48,12 +63,18 @@ public class ScriptEfectosHUD : MonoBehaviour
     {
         if (dashEffect != null)
             StartCoroutine(EfectoVisual(dashEffect, colorDash, alphaMaxDash, duracionDash));
+
+        if (audioSource != null && sonidoDash != null)
+            audioSource.PlayOneShot(sonidoDash);
     }
 
     private void MostrarEfectoSlide()
     {
         if (slideEffect != null)
             StartCoroutine(EfectoVisual(slideEffect, colorSlide, alphaMaxSlide, duracionSlide));
+
+        if (audioSource != null && sonidoSlide != null)
+            audioSource.PlayOneShot(sonidoSlide);
     }
 
     private IEnumerator EfectoVisual(Image efecto, Color color, float alphaMax, float duracion)
