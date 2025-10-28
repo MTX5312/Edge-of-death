@@ -19153,6 +19153,7 @@ GameObject:
   - component: {fileID: 545040345}
   - component: {fileID: 545040344}
   - component: {fileID: 545040343}
+  - component: {fileID: 545040347}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -19243,6 +19244,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &545040347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545040342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002e563a636893b44b1b85d95c24551e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camara: {fileID: 1068013692}
+  slider: {fileID: 1720368858}
+  texto: {fileID: 36886241}
 --- !u!1 &550371373
 GameObject:
   m_ObjectHideFlags: 0
@@ -35638,6 +35654,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834b2363f88717642a1c6c5879d2c0f0, type: 3}
+--- !u!114 &1068013692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5271647423070989843, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+  m_PrefabInstance: {fileID: 4953307940902688739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364c8bb822c960c4f9b14452ae9bb9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1074103395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 636872199879077733, guid: 53dacaf670866874ebcc93fbd7c4ceea, type: 3}
@@ -56461,7 +56488,7 @@ GameObject:
   - component: {fileID: 1720368857}
   - component: {fileID: 1720368858}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderSensibilidad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56540,7 +56567,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 545040347}
+        m_TargetAssemblyTypeName: UIOpcionesCamara, Assembly-CSharp
+        m_MethodName: OnSliderChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1742674034
 Mesh:
   m_ObjectHideFlags: 0

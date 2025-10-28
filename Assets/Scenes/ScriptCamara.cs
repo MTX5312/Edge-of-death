@@ -12,16 +12,16 @@ public class ScriptCamara : MonoBehaviour
     public bool camaraMovida = false;
 
     [Header("Límites de mirada vertical")]
-    public bool limitarMiradaVertical = false;  // ← Opción para activar/desactivar
-    public float limiteSuperior = 90f;
-    public float limiteInferior = -90f;
+    public bool limitarMiradaVertical = true;   // ← Activado por defecto
+    public float limiteSuperior = 80f;          // ← Parkour: ver cielo
+    public float limiteInferior = -70f;         // ← Parkour: ver pies
 
     private float angleY = 0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        AjustarSensibilidadAPantalla(); // ← Ajuste automático
+        AjustarSensibilidadAPantalla();
     }
 
     void Update()
@@ -46,10 +46,22 @@ public class ScriptCamara : MonoBehaviour
             {
                 angleY = Mathf.Clamp(angleY, limiteInferior, limiteSuperior);
             }
-            // Si NO limitamos → permite 360° vertical (opcional)
 
             Head.localRotation = Quaternion.Euler(angleY, 0, 0);
             camaraMovida = true;
+        }
+
+        // === DESBLOQUEAR MOUSE PARA UI (NUEVO) ===
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1)) // Clic derecho
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
@@ -57,9 +69,8 @@ public class ScriptCamara : MonoBehaviour
     void AjustarSensibilidadAPantalla()
     {
         float dpi = Screen.dpi;
-        if (dpi <= 0) dpi = 96; // Valor por defecto
+        if (dpi <= 0) dpi = 96;
 
-        // Ajuste proporcional: pantallas grandes → más sensibilidad
         float factorPantalla = Screen.width / 1920f;
         sensibilidad = sensibilidadBase * factorPantalla * (dpi / 96f);
     }
