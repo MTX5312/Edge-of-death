@@ -12,6 +12,9 @@ public class ScriptJugador : MonoBehaviour
     [Header("Deslizar")]
     public float tiempoRestanteSlide = 0f;
     bool deslizando = false;
+    public System.Action OnSlide;
+    private float alturaOriginalCollider;
+    private Vector3 centroOriginalCollider;
 
     [Header("Camara")]
     public ScriptCamara camara;
@@ -19,7 +22,7 @@ public class ScriptJugador : MonoBehaviour
     [Header("PJ")]
     public Transform Body;
     public CapsuleCollider colJugador;
-    public float alturaNormal = 2f;
+    public float alturaNormal = 1f;
     public float alturaSlide = 1f;
 
     [Header("Salto")]
@@ -52,6 +55,9 @@ public class ScriptJugador : MonoBehaviour
 
         if (colJugador == null)
             colJugador = GetComponent<CapsuleCollider>();
+
+        alturaOriginalCollider = controller.height;
+        centroOriginalCollider = controller.center;
     }
 
     private void Update()
@@ -116,7 +122,6 @@ public class ScriptJugador : MonoBehaviour
         float aceleracion = 3f;
         float velocidadMaxima = 100f;
         float velocidadMinima = 20f;
-        float desaceleracion = 5f;
         float freno = 20f;
 
         if (velocidadActual >= 50f)
@@ -154,15 +159,18 @@ public class ScriptJugador : MonoBehaviour
         float duracionSlide = 1f;
         float velocidadExtra = 6f;
         float cooldownSlide = 1f;
-        float tiempoUltimoSlide = -10;
+        float tiempoUltimoSlide = -10f;
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && inputMovimiento.z > 0.1f && !deslizando && Time.time > tiempoUltimoSlide + cooldownSlide)
         {
             deslizando = true;
+            OnSlide?.Invoke();
             velocidadActual += velocidadExtra;
-            direccion = Body.TransformDirection(inputMovimiento); // Respeta inversión
+            direccion = Body.TransformDirection(inputMovimiento);
             tiempoRestanteSlide = duracionSlide;
             tiempoUltimoSlide = Time.time;
+
+            // Cambiar solo el collider, no la escala visual
             CambiarAltura(alturaSlide);
         }
 
@@ -177,7 +185,10 @@ public class ScriptJugador : MonoBehaviour
             if (tiempoRestanteSlide <= 0f)
             {
                 deslizando = false;
-                CambiarAltura(alturaNormal);
+
+                // Restaurar altura original
+                controller.height = alturaOriginalCollider;
+                controller.center = centroOriginalCollider;
             }
         }
     }

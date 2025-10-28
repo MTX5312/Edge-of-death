@@ -12,6 +12,7 @@ public class ScriptDash : MonoBehaviour
     [Header("Referencias")]
     public Transform Body;
     public ScriptJugador jugador;          // ← Referencia al script del jugador
+    public System.Action OnDash;
 
     private bool dashing = false;
     private CharacterController controller;
@@ -30,6 +31,7 @@ public class ScriptDash : MonoBehaviour
         // No hacer dash si ya está dashing o en cooldown
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > ultimoDash + dashCooldown && !dashing)
         {
+            OnDash?.Invoke();
             // Leer la dirección de movimiento
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
