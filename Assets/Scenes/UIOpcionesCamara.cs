@@ -4,7 +4,7 @@ using TMPro;
 
 public class UIOpcionesCamara : MonoBehaviour
 {
-    public ScriptCamara camara;  // ← Ahora SÍ es la Main Camera
+    public ScriptCamara camara;  
     public Slider slider;
     public TextMeshProUGUI texto;
 
