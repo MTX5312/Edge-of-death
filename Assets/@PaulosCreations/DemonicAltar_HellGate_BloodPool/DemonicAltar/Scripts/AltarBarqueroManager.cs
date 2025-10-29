@@ -6,6 +6,7 @@ public class AltarBarqueroManager : MonoBehaviour
     public DemonicAltar_Controller altarController;
     public GameObject barquero;
     public GameObject dialogoUI;
+    public TMPro.TextMeshProUGUI dialogoText; 
     public GameObject ticketPrefab;
     public Transform ticketSpawnPoint;
     public float tiempoDialogo = 4f;
@@ -25,16 +26,12 @@ public class AltarBarqueroManager : MonoBehaviour
     {
         // Activa los efectos del altar
         altarController.ToggleDemonicAltar();
-
-        // Espera un momento para hacerlo más dramático
         yield return new WaitForSeconds(1f);
 
         // Hace aparecer al barquero
         barquero.SetActive(true);
-
         // Muestra el diálogo
         dialogoUI.SetActive(true);
-
         yield return new WaitForSeconds(tiempoDialogo);
 
         dialogoUI.SetActive(false);
