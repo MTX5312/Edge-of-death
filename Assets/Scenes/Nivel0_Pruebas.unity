@@ -12987,6 +12987,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &451161553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5060039626731099503, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+  m_PrefabInstance: {fileID: 1302243719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451161549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeecde2faad9fd45b4ac61d6970f791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &451161556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451161549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1dd0bcce10a9e4f9538b1b434709c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altarController: {fileID: 0}
+  barquero: {fileID: 0}
+  dialogoUI: {fileID: 0}
+  ticketPrefab: {fileID: 0}
+  ticketSpawnPoint: {fileID: 0}
+  tiempoDialogo: 4
 --- !u!43 &454395361
 Mesh:
   m_ObjectHideFlags: 0
@@ -32826,6 +32855,34 @@ PrefabInstance:
       propertyPath: MaxDistance
       value: 21.900303
       objectReference: {fileID: 0}
+    - target: {fileID: 199302345662548170, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199394366900181246, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199538927485195778, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199555134873700010, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199704724495209362, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199950071692987422, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199995763346665238, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77b772ad2965654697ec98fe4ad20a5, type: 3}
 --- !u!43 &1302354324
@@ -43217,6 +43274,122 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1734692398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734692402}
+  - component: {fileID: 1734692401}
+  - component: {fileID: 1734692400}
+  - component: {fileID: 1734692399}
+  - component: {fileID: 1734692403}
+  m_Layer: 0
+  m_Name: TriggerInicio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1734692399
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734692398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1734692400
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734692398}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1734692401
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734692398}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1734692402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734692398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.499228, y: 4.2791615, z: -55.44699}
+  m_LocalScale: {x: 2.315004, y: 18.115767, z: 12.946493}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734692403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734692398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1dd0bcce10a9e4f9538b1b434709c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altarController: {fileID: 451161553}
+  barquero: {fileID: 1911427465}
+  dialogoUI: {fileID: 0}
+  ticketPrefab: {fileID: 0}
+  ticketSpawnPoint: {fileID: 0}
+  tiempoDialogo: 4
 --- !u!1 &1757784495
 GameObject:
   m_ObjectHideFlags: 0
@@ -46205,6 +46378,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1911427465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46c3ab09f12824b4495d6942dcfccde8, type: 3}
+  m_PrefabInstance: {fileID: 835622043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1914543248
 Mesh:
   m_ObjectHideFlags: 0

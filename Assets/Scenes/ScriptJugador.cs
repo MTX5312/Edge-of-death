@@ -235,4 +235,12 @@ public class ScriptJugador : MonoBehaviour
     {
         isInZonaTraicion = false;
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+{
+    if (hit.collider.name == "TriggerInicio")
+    {
+        Debug.Log("¡TRIGGER DETECTADO!");
+    }
+}
 }
