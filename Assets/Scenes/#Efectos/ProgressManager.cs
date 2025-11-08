@@ -18,7 +18,6 @@ public class ProgressManager : MonoBehaviour
 
     private void Start()
     {
-        // Asigna automáticamente la cantidad total al iniciar
         totalCheckpoints = CheckpointScript.AllCount;
         progressBar.value = 0;
     }

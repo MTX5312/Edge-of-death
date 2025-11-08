@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScriptJugador : MonoBehaviour
 {
+    public int ticket = 0;
+    public event Action<int> OnTicketChanged;
+
     [Header("Movimiento")]
     public float velocidadActual = 20f;
     private Vector3 direccion;
@@ -234,5 +238,11 @@ public class ScriptJugador : MonoBehaviour
     public void ExitInversionZone()
     {
         isInZonaTraicion = false;
+    }
+
+    public void AddTicket(int amount)
+    {
+        ticket += amount;
+        OnTicketChanged?.Invoke(ticket);
     }
 }
