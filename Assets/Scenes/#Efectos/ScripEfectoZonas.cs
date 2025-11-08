@@ -84,7 +84,6 @@ public class ScripEfectoZonas : MonoBehaviour
 
     private void ActivarLimbo()
     {
-        // 🔧 Evitar reactivar Limbo si ya está activo
         if (efectoActual == limboEffect && limboEffect != null && limboEffect.gameObject.activeSelf)
             return;
 

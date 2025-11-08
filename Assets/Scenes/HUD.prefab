@@ -291,7 +291,7 @@ RectTransform:
   m_GameObject: {fileID: 3916905799043871891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9, y: 3, z: 1}
+  m_LocalScale: {x: 1.94674, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5435427501175514515}
@@ -301,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000050863, y: -25.2}
+  m_AnchoredPosition: {x: 0.000050863, y: -24.599976}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8702532084951244981
@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 2555053199932989357}
   - component: {fileID: 7421500981323696056}
   - component: {fileID: 8901666983599453114}
+  - component: {fileID: 3029841999902408022}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -820,6 +821,19 @@ MonoBehaviour:
   duracionFadeIn: 1
   duracionFadeOut: 0.5
   alphaMax: 1
+--- !u!114 &3029841999902408022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035002179958967525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a21145143c1e25409456b8df49d8c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 8702532084951244981}
 --- !u!1 &6162354714362490780
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -37,7 +37,7 @@ public class ZonaDetector : MonoBehaviour
         if (other.gameObject.name == zonaActual)
         {
             zonaActual = "";
-            efectoHUD.MostrarEfecto(""); // 🌀 Al salir de una zona, vuelve a Limbo
+            efectoHUD.MostrarEfecto("");
         }
     }
 }

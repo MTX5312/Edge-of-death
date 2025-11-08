@@ -50175,6 +50175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3007778049340638739, guid: 26435aa29c8244748819635a78f7f652, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6035002179958967525, guid: 26435aa29c8244748819635a78f7f652, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -50187,6 +50191,18 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 903024239}
+    - target: {fileID: 7993449111021057613, guid: 26435aa29c8244748819635a78f7f652, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993449111021057613, guid: 26435aa29c8244748819635a78f7f652, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993449111021057613, guid: 26435aa29c8244748819635a78f7f652, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26435aa29c8244748819635a78f7f652, type: 3}
 --- !u!1001 &3125042754984564682
