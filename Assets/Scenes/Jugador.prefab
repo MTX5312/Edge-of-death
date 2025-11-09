@@ -98,13 +98,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364c8bb822c960c4f9b14452ae9bb9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseX: 0
-  MouseY: 0
+  sensibilidadBase: 150
   sensibilidad: 150
+  mouseX: 0
+  mouseY: 0
   Body: {fileID: 978697508593157020}
   Head: {fileID: 5271647423070989842}
   camaraMovida: 0
-  Angle: 0
+  camara: {fileID: 5271647423070989845}
+  jugador: {fileID: 978697508593157011}
+  fovBase: 45
+  fovMax: 90
+  velocidadMax: 100
+  suavizadoFOV: 5
+  limitarMiradaVertical: 1
+  limiteSuperior: 80
+  limiteInferior: -70
 --- !u!114 &7482035966109637653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5125,6 +5134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dde15a69f57a0846a433de32000ca67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ticket: 0
   velocidadActual: 20
   tiempoRestanteSlide: 0
   camara: {fileID: 0}

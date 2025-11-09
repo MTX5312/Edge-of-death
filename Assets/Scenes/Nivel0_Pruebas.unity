@@ -50949,6 +50949,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5271647423070989843, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: fovBase
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 5477460739864194882, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: m_RootOrder
       value: 64

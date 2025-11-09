@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ScriptCamara : MonoBehaviour
 {
-    public float sensibilidadBase = 150f;  // Base antes de ajuste
-    public float sensibilidad = 150f;      // Ajustable desde UI
+    public float sensibilidadBase = 150f;
+    public float sensibilidad = 150f;
     public float mouseX, mouseY;
 
     public Transform Body;
@@ -13,10 +13,18 @@ public class ScriptCamara : MonoBehaviour
 
     public bool camaraMovida = false;
 
+    [Header("Efecto de velocidad (FOV)")]
+    public Camera camara;
+    public ScriptJugador jugador;
+    public float fovBase = 45f;
+    public float fovMax = 90f;
+    public float velocidadMax = 100f;
+    public float suavizadoFOV = 5f;
+
     [Header("Límites de mirada vertical")]
-    public bool limitarMiradaVertical = true;   // ← Activado por defecto
-    public float limiteSuperior = 80f;          // ← Parkour: ver cielo
-    public float limiteInferior = -70f;         // ← Parkour: ver pies
+    public bool limitarMiradaVertical = true;
+    public float limiteSuperior = 80f;
+    public float limiteInferior = -70f;
 
     private float angleY = 0f;
 
@@ -30,7 +38,6 @@ public class ScriptCamara : MonoBehaviour
     {
         camaraMovida = false;
 
-        // === Movimiento horizontal (sin cambios) ===
         float mouseXInput = Input.GetAxis("Mouse X") * sensibilidad * Time.deltaTime;
         if (Mathf.Abs(mouseXInput) > 0.001f)
         {
@@ -38,7 +45,6 @@ public class ScriptCamara : MonoBehaviour
             camaraMovida = true;
         }
 
-        // === Movimiento vertical (mejorado) ===
         float mouseYInput = Input.GetAxis("Mouse Y") * sensibilidad * Time.deltaTime;
         if (Mathf.Abs(mouseYInput) > 0.001f)
         {
@@ -53,21 +59,25 @@ public class ScriptCamara : MonoBehaviour
             camaraMovida = true;
         }
 
-        // === DESBLOQUEAR MOUSE PARA UI (NUEVO) ===
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1)) // Clic derecho
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        if (jugador != null && camara != null)
+        {
+            float velocidad = jugador.velocidadActual;
+            float t = Mathf.InverseLerp(0, velocidadMax, velocidad);
+            float fovObjetivo = Mathf.Lerp(fovBase, fovMax, t);
+            camara.fieldOfView = Mathf.Lerp(camara.fieldOfView, fovObjetivo, Time.deltaTime * suavizadoFOV);
+        }
     }
-
-    // === Ajuste automático según resolución ===
     void AjustarSensibilidadAPantalla()
     {
         float dpi = Screen.dpi;
@@ -76,8 +86,6 @@ public class ScriptCamara : MonoBehaviour
         float factorPantalla = Screen.width / 1920f;
         sensibilidad = sensibilidadBase * factorPantalla * (dpi / 96f);
     }
-
-    // === Método público para UI ===
     public void SetSensibilidad(float valor)
     {
         sensibilidad = sensibilidadBase * valor;
