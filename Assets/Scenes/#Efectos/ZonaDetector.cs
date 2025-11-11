@@ -1,9 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZonaDetector : MonoBehaviour
 {
     public ScripEfectoZonas efectoHUD;
     private string zonaActual = "";
+
+    private void Start()
+    {
+        if (efectoHUD != null)
+            efectoHUD.MostrarEfecto("");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,7 +37,7 @@ public class ZonaDetector : MonoBehaviour
         if (other.gameObject.name == zonaActual)
         {
             zonaActual = "";
-            efectoHUD.OcultarTodosLosEfectos();
+            efectoHUD.MostrarEfecto("");
         }
     }
 }

@@ -13,7 +13,7 @@ public class CheckpointScript : MonoBehaviour
     public Material lightActiveColor;
 
     private bool isActive = false;
-
+    public static int AllCount => allCheckpoints.Count;
     private static List<CheckpointScript> allCheckpoints = new List<CheckpointScript>();
 
     private void Awake()
@@ -74,6 +74,8 @@ public class CheckpointScript : MonoBehaviour
                     cp.isActive = false;
                 }
             }
+            int index = allCheckpoints.IndexOf(this);
+            ProgressManager.Instance.SetActiveCheckpointIndex(index);
         }
     }
 }
