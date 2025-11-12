@@ -1,0 +1,16 @@
+===== MÉTRICAS DEL JUEGO =====
+
+----- NUEVA SESIÓN -----
+Fecha: 12/11/2025 5:07:03 p. m.
+Escena: Nivel3_Avaricia
+Caídas: 4
+Velocidad Máxima: 52,87
+Velocidad Promedio: 34,13
+
+----- NUEVA SESIÓN -----
+Fecha: 12/11/2025 5:07:03 p. m.
+Escena: Nivel3_Avaricia
+Caídas: 4
+Velocidad Máxima: 52,87
+Velocidad Promedio: 34,13
+

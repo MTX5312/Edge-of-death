@@ -9,16 +9,24 @@ public class GameMetrics : MonoBehaviour
     private float totalSpeed = 0f;
     private int speedSamples = 0;
 
+    private string folderPath;
     private string filePath;
 
     private void Start()
     {
-        filePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Metrics.txt";
+        // 🔹 Crear carpeta "Metrics" en la raíz del proyecto
+        folderPath = Path.Combine(Application.dataPath, "..", "Metrics");
+        filePath = Path.Combine(folderPath, "Metrics.txt");
 
+        // Crear la carpeta si no existe
+        if (!Directory.Exists(folderPath))
+            Directory.CreateDirectory(folderPath);
+
+        // Crear archivo si no existe
         if (!File.Exists(filePath))
-        {
             File.WriteAllText(filePath, "===== MÉTRICAS DEL JUEGO =====\n\n");
-        }
+
+        Debug.Log("📁 Carpeta de métricas: " + Path.GetFullPath(folderPath));
     }
 
     private void Update()
@@ -36,14 +44,12 @@ public class GameMetrics : MonoBehaviour
         }
     }
 
-    // 🔹 Este método se llama cada vez que el jugador toca una zona de muerte
     public void RegisterFall()
     {
         fallCount++;
         Debug.Log("📉 Caída registrada. Total: " + fallCount);
     }
 
-    // 🔹 Guardar métricas en archivo
     private void SaveMetrics()
     {
         float averageSpeed = speedSamples > 0 ? totalSpeed / speedSamples : 0;
@@ -67,7 +73,6 @@ public class GameMetrics : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-    //🔹 También guarda al salir del modo Play en el Editor
     private void OnDestroy()
     {
         if (!Application.isPlaying)
