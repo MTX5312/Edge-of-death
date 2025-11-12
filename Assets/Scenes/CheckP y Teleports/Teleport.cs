@@ -1,29 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor; // Esto permite usar SceneAsset en el editor
+#endif
 
-public class TeleportPuerta : MonoBehaviour
+public class Teleport : MonoBehaviour
 {
-    [SerializeField] private string nombreSiguienteEscena;
-    [SerializeField] private bool usarIndice = false;
-    [SerializeField] private int indiceSiguienteEscena = 0;
+#if UNITY_EDITOR
+    [SerializeField] private SceneAsset escenaDestino; // Permite elegir la escena visualmente
+#endif
+
+    [SerializeField, Tooltip("Si usás Build Settings, asegurate de que la escena esté incluida")]
+    private string nombreEscenaDestino;
+
+    private void OnValidate()
+    {
+#if UNITY_EDITOR
+        if (escenaDestino != null)
+            nombreEscenaDestino = escenaDestino.name;
+#endif
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            CargarSiguienteEscena();
-        }
-    }
-
-    private void CargarSiguienteEscena()
-    {
-        if (usarIndice)
-        {
-            SceneManager.LoadScene(indiceSiguienteEscena);
-        }
-        else
-        {
-            SceneManager.LoadScene(nombreSiguienteEscena);
+            SceneManager.LoadScene(nombreEscenaDestino);
         }
     }
 }
