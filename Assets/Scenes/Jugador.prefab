@@ -192,7 +192,6 @@ GameObject:
   - component: {fileID: 6813586401143440500}
   - component: {fileID: 6813586400067538972}
   - component: {fileID: 6813586400067538975}
-  - component: {fileID: 6813586400067538974}
   - component: {fileID: 6813586400067538968}
   m_Layer: 0
   m_Name: Jugador
@@ -391,24 +390,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6813586400067538974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6813586400067539938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04db68af75e2062408d98c8ab31a3ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugadorRB: {fileID: 6813586400067538962}
-  viento50: {fileID: 6813586400931997759}
-  viento100: {fileID: 6813586401205927419}
-  camaraJugador: {fileID: 6813586399949130777}
-  distanciaFrontal: 2
-  alturaOffset: 0
 --- !u!114 &6813586400067538968
 MonoBehaviour:
   m_ObjectHideFlags: 0
