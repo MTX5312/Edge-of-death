@@ -168,3 +168,17 @@ Caídas: 4
 Velocidad Máxima: 57,94
 Velocidad Promedio: 34,96
 
+----- NUEVA SESIÓN -----
+Fecha: 12/11/2025 5:42:57 p. m.
+Escena: Nivel3_Avaricia
+Caídas: 0
+Velocidad Máxima: 45,49
+Velocidad Promedio: 0,20
+
+----- NUEVA SESIÓN -----
+Fecha: 12/11/2025 5:42:57 p. m.
+Escena: Nivel3_Avaricia
+Caídas: 0
+Velocidad Máxima: 45,49
+Velocidad Promedio: 0,20
+
