@@ -44,7 +44,6 @@ public class DeathZoneScript : MonoBehaviour
             }
 
             ScriptJugador playerScript = other.GetComponent<ScriptJugador>();
-
             if (playerScript != null)
             {
                 playerScript.ExitHighGravityZone();
