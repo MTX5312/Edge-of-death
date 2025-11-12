@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathZoneScript : MonoBehaviour
@@ -19,9 +17,14 @@ public class DeathZoneScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameMetrics metrics = other.GetComponent<GameMetrics>();
+            if (metrics != null)
+            {
+                metrics.RegisterFall();
+            }
+
             CharacterController controller = other.GetComponent<CharacterController>();
-           
-            // Desactivar CharacterController para mover al jugador
+
             if (controller != null)
             {
                 controller.enabled = false;
@@ -41,11 +44,10 @@ public class DeathZoneScript : MonoBehaviour
             }
 
             ScriptJugador playerScript = other.GetComponent<ScriptJugador>();
-           // Restablecer efectos de la zona de Gula y velocidad
             if (playerScript != null)
             {
-                playerScript.ExitHighGravityZone(); // Resetea gravedad, salto y velocidad
-                playerScript.velocidadActual = 20f; // Valor por defecto de ScriptJugador.cs
+                playerScript.ExitHighGravityZone();
+                playerScript.velocidadActual = 20f;
             }
 
             Debug.Log("Jugador respawneado en: " + currentRespawnPosition);
