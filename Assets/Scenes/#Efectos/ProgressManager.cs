@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ProgressManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ProgressManager : MonoBehaviour
     [Header("Referencia al Slider de Progreso")]
     public Slider progressBar;
 
-    private int totalCheckpoints;
+    private int totalCheckpoints = 0;
     private int activatedIndex = 0;
 
     private void Awake()
@@ -16,20 +17,27 @@ public class ProgressManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        totalCheckpoints = CheckpointScript.AllCount;
-        progressBar.value = 0;
+        StartCoroutine(InitializeProgress());
     }
 
-    public void SetTotalCheckpoints(int amount)
+    private IEnumerator InitializeProgress()
     {
-        totalCheckpoints = amount;
+        yield return null;
+
+        totalCheckpoints = CheckpointScript.AllCount;
+
+        Debug.Log($"[ProgressManager] Total de checkpoints encontrados: {totalCheckpoints}");
+
+        progressBar.value = 0;
     }
 
     public void SetActiveCheckpointIndex(int index)
     {
         activatedIndex = index;
+
+        Debug.Log($"[ProgressManager] Activando checkpoint índice: {activatedIndex} / {totalCheckpoints - 1}");
 
         if (totalCheckpoints > 1)
             progressBar.value = (float)activatedIndex / (totalCheckpoints - 1);
