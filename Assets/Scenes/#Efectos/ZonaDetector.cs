@@ -3,7 +3,7 @@
 public class ZonaDetector : MonoBehaviour
 {
     public ScripEfectoZonas efectoHUD;
-    private string zonaActual = "";
+    public string zonaActual { get; private set; } = "";
 
     private void Start()
     {
