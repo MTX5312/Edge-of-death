@@ -1,57 +1,46 @@
 using UnityEngine;
-using System.Collections;
 
 public class SlowMoOnDash : MonoBehaviour
 {
-    public ScriptDash dashScript;
-    public ZonaDetector zonaDetector;
+    [Header("Tiempo")]
+    public float slowTimeScale = 0.3f;
+    public float normalTimeScale = 1f;
+    public float dashTimeDuration = 2f;
 
-    [Header("Slow Motion Settings")]
-    public float slowTimeScale = 0.25f;
-    public float dashOverrideDuration = 1.5f;
-    public float enterSpeed = 6f;
-    public float exitSpeed = 3f;
-
-    private bool overrideActive = false;
-
-    void Start()
-    {
-        dashScript.OnDash += HandleDash;
-    }
+    [Header("Estado")]
+    public bool estaEnPereza = false;
+    private bool dashOverride = false;
+    private float timerDash = 0f;
 
     void Update()
     {
-        float targetTimeScale;
-
-        if (zonaDetector.zonaActual == "Pereza" && !overrideActive)
+        if (estaEnPereza && !dashOverride)
         {
-            targetTimeScale = slowTimeScale;
-        }
-        else
-        {
-            targetTimeScale = 1f;
+            Time.timeScale = slowTimeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
         }
 
-        Time.timeScale = Mathf.Lerp(
-            Time.timeScale,
-            targetTimeScale,
-            Time.unscaledDeltaTime * (targetTimeScale < Time.timeScale ? enterSpeed : exitSpeed)
-        );
+        if (dashOverride)
+        {
+            timerDash -= Time.unscaledDeltaTime;
+            if (timerDash <= 0f)
+            {
+                dashOverride = false;
+            }
+        }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            ActivarDash();
+        }
+    }
+
+    public void ActivarDash()
+    {
+        dashOverride = true;
+        timerDash = dashTimeDuration;
+
+        Time.timeScale = normalTimeScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
-    }
-
-    void HandleDash()
-    {
-        if (zonaDetector.zonaActual != "Pereza") return;
-
-        StartCoroutine(DashOverrideRoutine());
-    }
-
-    IEnumerator DashOverrideRoutine()
-    {
-        overrideActive = true;
-        yield return new WaitForSecondsRealtime(dashOverrideDuration);
-        overrideActive = false;
     }
 }
