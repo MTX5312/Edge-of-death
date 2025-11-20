@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   efectoHUD: {fileID: 0}
+  slowMo: {fileID: 856961841585562824}
 --- !u!114 &8304603954672594918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,9 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee60666d20c832945a1cbf5d059d08b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashScript: {fileID: 6813586401143440500}
-  zonaDetector: {fileID: 6813586400067538968}
   slowTimeScale: 0.4
-  dashOverrideDuration: 4
-  enterSpeed: 6
-  exitSpeed: 3
+  normalTimeScale: 1
+  dashTimeDuration: 2
+  estaEnPereza: 0
