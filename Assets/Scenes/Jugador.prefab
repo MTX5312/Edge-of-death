@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 6813586400067538968}
   - component: {fileID: 8304603954672594918}
   - component: {fileID: 856961841585562824}
+  - component: {fileID: 417844704763746388}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   efectoHUD: {fileID: 0}
   slowMo: {fileID: 856961841585562824}
+  skyboxManager: {fileID: 0}
 --- !u!114 &8304603954672594918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +260,27 @@ MonoBehaviour:
   normalTimeScale: 1
   dashTimeDuration: 2
   estaEnPereza: 0
+--- !u!114 &417844704763746388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813586400067539938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff1e09be30f471499ea850b85785e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxTraicion: {fileID: 2100000, guid: 82ad35cde3a2bd141be93dc8bece6fd6, type: 2}
+  skyboxGula: {fileID: 2100000, guid: 2bf27b33b5afb394a9ab4d6e8f1b19c4, type: 2}
+  skyboxAvaricia: {fileID: 2100000, guid: 43f945942b7e48746b8af01c31f12ea0, type: 2}
+  skyboxViolencia: {fileID: 2100000, guid: f03af9f5da0cffa47b57a51831ba0082, type: 2}
+  skyboxLujuria: {fileID: 2100000, guid: ef30666925a373a448b0a5ec22d0dcd0, type: 2}
+  skyboxHerejia: {fileID: 2100000, guid: 80b08327baf9e954ba4dd5cd9ff7c6f9, type: 2}
+  skyboxPereza: {fileID: 2100000, guid: b6c7fb9bc0141c64e80f40a11c37513c, type: 2}
+  skyboxLimbo: {fileID: 2100000, guid: 9acb6151f53854748ac964dab87e89e7, type: 2}
+  skyboxDefault: {fileID: 0}
 --- !u!1001 &8667855722216604109
 PrefabInstance:
   m_ObjectHideFlags: 0
