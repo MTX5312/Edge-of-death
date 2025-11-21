@@ -30,3 +30,4 @@ public class ScriptMainMenu : MonoBehaviour
         Application.Quit();
     }
 }
+
