@@ -1099,3 +1099,38 @@ Caídas: 0
 Velocidad Máxima: 20,24
 Velocidad Promedio: 2,62
 
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 1:48:25 p. m.
+Escena: Nivel1_Limbo
+Caídas: 4
+Velocidad Máxima: 107,18
+Velocidad Promedio: 33,03
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 1:52:32 p. m.
+Escena: Nivel2_Lujuria
+Caídas: 24
+Velocidad Máxima: 56,36
+Velocidad Promedio: 25,96
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 1:54:57 p. m.
+Escena: Nivel3_Avaricia
+Caídas: 11
+Velocidad Máxima: 176,53
+Velocidad Promedio: 51,53
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 2:05:31 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 54,00
+Velocidad Promedio: 8,74
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 2:05:31 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 54,00
+Velocidad Promedio: 8,74
+
