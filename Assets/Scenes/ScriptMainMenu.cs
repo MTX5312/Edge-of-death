@@ -7,7 +7,7 @@ public class ScriptMainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Nivel 1_Limbo");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().builIndex + 1);
     }
 
     public void GoToOpcionesMenu()
