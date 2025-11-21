@@ -7,7 +7,7 @@ public class ScriptMainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().builIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void GoToOpcionesMenu()
@@ -18,6 +18,11 @@ public class ScriptMainMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GoToControlesMenu()
+    {
+        SceneManager.LoadScene("ControlesMenu");
     }
 
     public void QuitGame()
