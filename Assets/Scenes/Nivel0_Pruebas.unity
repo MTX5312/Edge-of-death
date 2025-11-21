@@ -40389,17 +40389,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1747904161 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6903636262293267265, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
-  m_PrefabInstance: {fileID: 6813586401356237338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364c8bb822c960c4f9b14452ae9bb9c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1751024449
 Mesh:
   m_ObjectHideFlags: 0
@@ -54400,7 +54389,11 @@ PrefabInstance:
     - target: {fileID: 6813586401143440501, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: camara
       value: 
-      objectReference: {fileID: 1747904161}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903636262293267265, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: Body
+      value: 
+      objectReference: {fileID: 6813586401356237342}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
 --- !u!198 &6813586401356237339 stripped
@@ -54416,6 +54409,11 @@ ParticleSystem:
 --- !u!198 &6813586401356237341 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6903636264065817511, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+  m_PrefabInstance: {fileID: 6813586401356237338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6813586401356237342 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6813586400067538969, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
   m_PrefabInstance: {fileID: 6813586401356237338}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6978173578467651131 stripped

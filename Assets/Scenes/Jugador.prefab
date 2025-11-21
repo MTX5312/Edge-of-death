@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 2847625441390371468, guid: d7bd7559698c4c7428834ea953eb1c6a, type: 3}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6813586400067538969}
     - target: {fileID: 2847625441390371468, guid: d7bd7559698c4c7428834ea953eb1c6a, type: 3}
       propertyPath: jugador
       value: 
