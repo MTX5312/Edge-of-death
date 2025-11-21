@@ -174,7 +174,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!1 &5271647424012042346
+--- !u!1 &6813586400067539938
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,17 +182,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 978697508593157020}
-  - component: {fileID: 978697508593157015}
-  - component: {fileID: 978697508593157014}
-  - component: {fileID: 978697508593157013}
-  - component: {fileID: 978697508593157021}
-  - component: {fileID: 978697508593157012}
-  - component: {fileID: 978697508593157011}
-  - component: {fileID: 978697508593157010}
-  - component: {fileID: 978697508593157009}
-  - component: {fileID: 978697508593157008}
-  - component: {fileID: 978697508593157000}
+  - component: {fileID: 6813586400067538969}
+  - component: {fileID: 6813586400067538961}
+  - component: {fileID: 6813586400067538960}
+  - component: {fileID: 6813586400067538963}
+  - component: {fileID: 6813586400067538962}
+  - component: {fileID: 6813586400067538973}
+  - component: {fileID: 6813586401143440501}
+  - component: {fileID: 6813586401143440500}
+  - component: {fileID: 6813586400067538972}
+  - component: {fileID: 6813586400067538975}
+  - component: {fileID: 6813586400067538968}
+  - component: {fileID: 8304603954672594918}
+  - component: {fileID: 856961841585562824}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -212,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5271647423070989842}
+  - {fileID: 6813586399949130777}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -400,9 +402,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7edbb715f7c3124297a857c263ca64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadorRB: {fileID: 978697508593157021}
-  viento50: {fileID: 0}
-  viento100: {fileID: 0}
-  camaraJugador: {fileID: 5271647423070989842}
-  distanciaFrontal: 2
-  alturaOffset: 0
+  efectoHUD: {fileID: 0}
+  slowMo: {fileID: 856961841585562824}
+--- !u!114 &8304603954672594918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813586400067539938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2617b4dc073f0304bb054e10efb52459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &856961841585562824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813586400067539938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee60666d20c832945a1cbf5d059d08b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowTimeScale: 0.4
+  normalTimeScale: 1
+  dashTimeDuration: 2
+  estaEnPereza: 0

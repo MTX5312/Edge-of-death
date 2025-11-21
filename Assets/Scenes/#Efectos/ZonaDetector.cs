@@ -3,6 +3,8 @@
 public class ZonaDetector : MonoBehaviour
 {
     public ScripEfectoZonas efectoHUD;
+    public SlowMoOnDash slowMo;
+
     private string zonaActual = "";
 
     private void Start()
@@ -26,6 +28,11 @@ public class ZonaDetector : MonoBehaviour
             case "Pereza":
                 zonaActual = other.gameObject.name;
                 efectoHUD.MostrarEfecto(zonaActual);
+
+                if (other.gameObject.name == "Pereza")
+                {
+                    slowMo.estaEnPereza = true;
+                }
                 break;
         }
     }
@@ -38,6 +45,14 @@ public class ZonaDetector : MonoBehaviour
         {
             zonaActual = "";
             efectoHUD.MostrarEfecto("");
+
+            if (other.gameObject.name == "Pereza")
+            {
+                slowMo.estaEnPereza = false;
+
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
+            }
         }
     }
 }

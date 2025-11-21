@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bbf4c7df5f01948b72a29c75579d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashEffect: {fileID: 0}
+  dashEffect: {fileID: 410417082598308080}
   slideEffect: {fileID: 7347151181817028371}
   jugador: {fileID: 0}
   dash: {fileID: 0}

@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class CheckpointScript : MonoBehaviour
@@ -13,12 +13,14 @@ public class CheckpointScript : MonoBehaviour
     public Material lightActiveColor;
 
     private bool isActive = false;
-    public static int AllCount => allCheckpoints.Count;
+
     private static List<CheckpointScript> allCheckpoints = new List<CheckpointScript>();
+    public static int AllCount => allCheckpoints.Count;
 
     private void Awake()
     {
-        allCheckpoints.Add(this);
+        if (!allCheckpoints.Contains(this))
+            allCheckpoints.Add(this);
     }
 
     private void OnDestroy()
@@ -26,21 +28,32 @@ public class CheckpointScript : MonoBehaviour
         allCheckpoints.Remove(this);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
         if (baseRenderer == null)
-        {
             baseRenderer = GetComponentInParent<Renderer>();
-        }
-        if (cylinderRenderer == null)
-        {
-            cylinderRenderer = GetComponentInChildren<Renderer>();
-        }
 
-        if (baseRenderer != null)
-            baseRenderer.material.color = baseInactiveColor;
-        if (cylinderRenderer != null)
-            cylinderRenderer.material = lightInactiveColor;
+        if (cylinderRenderer == null)
+            cylinderRenderer = GetComponentInChildren<Renderer>();
+
+        if (!isActive)
+        {
+            if (baseRenderer != null)
+                baseRenderer.material.color = baseInactiveColor;
+
+            if (cylinderRenderer != null)
+                cylinderRenderer.material = lightInactiveColor;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,9 +61,7 @@ public class CheckpointScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DeathZoneScript.currentRespawnPosition = transform.position;
-
             ActivateCheckpoint();
-
             Debug.Log("Nuevo checkpoint activado: " + name);
         }
     }
@@ -59,23 +70,56 @@ public class CheckpointScript : MonoBehaviour
     {
         foreach (CheckpointScript cp in allCheckpoints)
         {
-            if (cp != null && cp.baseRenderer != null && cp.cylinderRenderer != null)
+            if (cp == null) continue;
+
+            if (cp == this)
             {
-                if (cp == this)
+                cp.baseRenderer.material.color = baseActiveColor;
+                cp.cylinderRenderer.material = lightActiveColor;
+                cp.isActive = true;
+            }
+            else
+            {
+                cp.baseRenderer.material.color = baseInactiveColor;
+                cp.cylinderRenderer.material = lightInactiveColor;
+                cp.isActive = false;
+            }
+        }
+
+        int index = allCheckpoints.IndexOf(this);
+        ProgressManager.Instance.SetActiveCheckpointIndex(index);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Vector3 currentRespawn = DeathZoneScript.currentRespawnPosition;
+        bool respawnIsFromThisScene = false;
+
+        foreach (CheckpointScript cp in allCheckpoints)
+        {
+            if (cp != null && cp.gameObject.scene == SceneManager.GetActiveScene())
+            {
+                if (cp.transform.position == currentRespawn)
                 {
-                    cp.baseRenderer.material.color = baseActiveColor;
-                    cp.cylinderRenderer.material = lightActiveColor;
-                    cp.isActive = true;
-                }
-                else
-                {
-                    cp.baseRenderer.material.color = baseInactiveColor;
-                    cp.cylinderRenderer.material = lightInactiveColor;
-                    cp.isActive = false;
+                    respawnIsFromThisScene = true;
+                    break;
                 }
             }
-            int index = allCheckpoints.IndexOf(this);
-            ProgressManager.Instance.SetActiveCheckpointIndex(index);
+        }
+
+        if (!respawnIsFromThisScene)
+        {
+            GameObject respawn = GameObject.Find("RespawnPoint");
+
+            if (respawn != null)
+            {
+                DeathZoneScript.currentRespawnPosition = respawn.transform.position;
+                Debug.Log("RespawnPoint reasignado porque el checkpoint era de otra escena.");
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró un objeto llamado 'RespawnPoint' en la escena: " + scene.name);
+            }
         }
     }
 }
