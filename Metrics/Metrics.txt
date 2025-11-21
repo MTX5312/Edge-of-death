@@ -1155,3 +1155,38 @@ Caídas: 0
 Velocidad Máxima: 24,20
 Velocidad Promedio: 3,88
 
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 2:58:59 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 30,93
+Velocidad Promedio: 14,76
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 2:58:59 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 30,93
+Velocidad Promedio: 14,76
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 3:00:20 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 27,05
+Velocidad Promedio: 18,23
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 3:00:20 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 27,05
+Velocidad Promedio: 18,23
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 3:01:09 p. m.
+Escena: Nivel6_Violencia
+Caídas: 0
+Velocidad Máxima: 24,20
+Velocidad Promedio: 9,09
+

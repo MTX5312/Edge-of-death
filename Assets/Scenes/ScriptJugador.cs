@@ -245,4 +245,21 @@ public class ScriptJugador : MonoBehaviour
         ticket += amount;
         OnTicketChanged?.Invoke(ticket);
     }
+    // Rebote al caer sobre un enemigo
+    public void Bounce(float fuerza)
+    {
+        // Fuerza hacia arriba del rebote
+        velocidadVertical = fuerza;
+
+        // Reiniciar saltos para permitir volver a saltar después del rebote
+        saltosRestantes = 2;
+
+        // Mover al jugador hacia arriba con el CharacterController
+        // (evita quedarse trabado dentro del enemigo)
+        if (controller != null)
+        {
+            controller.Move(Vector3.up * 0.1f);
+        }
+}
+
 }

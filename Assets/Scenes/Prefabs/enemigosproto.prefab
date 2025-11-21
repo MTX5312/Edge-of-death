@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2629344627500121378}
   - component: {fileID: 8556304921197777275}
   - component: {fileID: 5940831792281858742}
+  - component: {fileID: 2389095608803690603}
   m_Layer: 0
   m_Name: enemigosproto
   m_TagString: Enemy
@@ -115,6 +116,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2389095608803690603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079257589460604090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c124599ab731841a0df20b2be3f9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: 0
+  speed: 2
+  pointA: {x: 0, y: 0, z: 0}
+  pointB: {x: 0, y: 0, z: 0}
 --- !u!1 &3712933843832322557
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +144,7 @@ GameObject:
   - component: {fileID: 8322431498953829951}
   - component: {fileID: 1896838035180790643}
   - component: {fileID: 8430152008166598117}
+  - component: {fileID: 6395099682650210069}
   m_Layer: 0
   m_Name: ColliderCabeza
   m_TagString: EnemyTop
@@ -212,3 +230,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3712933843832322557}
   m_Mesh: {fileID: 0}
+--- !u!114 &6395099682650210069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712933843832322557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5d3e18ba88906469ff0d32012c4a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentEnemy: {fileID: 0}
+  bounceForce: 12
