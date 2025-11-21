@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ScriptMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PlayGame()
     {
-        
+        SceneManager.LoadScene("Nivel 1_Limbo");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame()
     {
-        
+        Application.Quit();
     }
 }
