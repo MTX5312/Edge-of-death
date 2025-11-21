@@ -260,6 +260,33 @@ public class ScriptJugador : MonoBehaviour
         {
             controller.Move(Vector3.up * 0.1f);
         }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Enemy"))
+        {
+            // Determinar si el impacto vino desde arriba:
+            // Si el punto de contacto está por encima del centro del enemigo, tratamos como top? 
+
+            // Penalización: respawnear al jugador y resetear enemigos
+            PenalizeAndRespawn();
+        }
+
+    }
+    private void PenalizeAndRespawn()
+    {
+        // Desactivar CharacterController para mover sin bugs
+        controller.enabled = false;
+
+        // Teletransportar al respawn global del juego
+        transform.position = DeathZoneScript.currentRespawnPosition;
+
+        controller.enabled = true;
+
+        // Resetear enemigos si existe el manager
+        if (EnemyManager.Instance != null)
+             EnemyManager.Instance.ResetAllEnemies();
 }
 
 }
