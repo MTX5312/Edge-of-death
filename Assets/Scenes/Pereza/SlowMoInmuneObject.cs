@@ -1,31 +1,20 @@
 using UnityEngine;
 
-public class SlowMoImmuneObject : MonoBehaviour
+public class SlowMoInmuneObject : MonoBehaviour
 {
-    public float speed = 5f;
-    public float slowedSpeed = 2f;
-
     private SlowMoOnDash slowMo;
+    private PlataformaMovil plataforma;
 
     void Start()
     {
         slowMo = FindObjectOfType<SlowMoOnDash>();
+        plataforma = GetComponent<PlataformaMovil>();
     }
 
     void Update()
     {
-        float currentSpeed;
+        if (plataforma == null) return;
 
-        if (slowMo.estaEnPereza && !slowMoIsDashOverride())
-            currentSpeed = speed;
-        else
-            currentSpeed = slowedSpeed;
-
-        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
-    }
-
-    bool slowMoIsDashOverride()
-    {
-        return Time.timeScale >= 0.99f;
+        plataforma.enabled = !(slowMo != null && slowMo.DashActivo);
     }
 }

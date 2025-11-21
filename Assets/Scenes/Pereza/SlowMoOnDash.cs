@@ -9,8 +9,11 @@ public class SlowMoOnDash : MonoBehaviour
 
     [Header("Estado")]
     public bool estaEnPereza = false;
+
     private bool dashOverride = false;
     private float timerDash = 0f;
+
+    public bool DashActivo => dashOverride;
 
     void Update()
     {
@@ -23,9 +26,21 @@ public class SlowMoOnDash : MonoBehaviour
         if (dashOverride)
         {
             timerDash -= Time.unscaledDeltaTime;
+
             if (timerDash <= 0f)
             {
                 dashOverride = false;
+
+                if (estaEnPereza)
+                {
+                    Time.timeScale = slowTimeScale;
+                }
+                else
+                {
+                    Time.timeScale = normalTimeScale;
+                }
+
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
         }
 
