@@ -10,6 +10,16 @@ public class ScriptMainMenu : MonoBehaviour
         SceneManager.LoadScene("Nivel 1_Limbo");
     }
 
+    public void GoToOpcionesMenu()
+    {
+        SceneManager.LoadScene("OpcionesMenu");
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
