@@ -4,20 +4,17 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [Header("Menú de Pausa")]
-    [SerializeField] private GameObject pausePanel;              // El panel con título "Pausa" y los 4 botones
+    [SerializeField] private GameObject pausePanel;
 
     [Header("Submenús reutilizados del Main Menu")]
-    [SerializeField] private GameObject optionsMenu;             // El mismo que tenías en el menú principal
-    [SerializeField] private GameObject controlesMenu;            // El mismo que tenías en el menú principal
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject controlesMenu;
 
     [Header("Canvas Group (opcional pero recomendado)")]
     [SerializeField] private CanvasGroup pauseCanvasGroup;
 
-    private bool isPaused = false;
-
     private void Start()
     {
-        // Todo oculto al empezar
         pausePanel.SetActive(false);
         optionsMenu.SetActive(false);
         controlesMenu.SetActive(false);
@@ -34,19 +31,16 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (controlesMenu.activeSelf || optionsMenu.activeSelf)
-                VolverAPausa();        
+                VolverAPausa();
             else if (pausePanel.activeSelf)
-                Resume();              
+                Resume();
             else
-                Pause();               
+                Pause();
         }
     }
 
-  
-
     public void Pause()
     {
-        isPaused = true;
         pausePanel.SetActive(true);
         optionsMenu.SetActive(false);
         controlesMenu.SetActive(false);
@@ -63,7 +57,6 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
-        isPaused = false;
         pausePanel.SetActive(false);
         optionsMenu.SetActive(false);
         controlesMenu.SetActive(false);
@@ -77,8 +70,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         AudioListener.pause = false;
     }
-
-
 
     public void OnResumeButton() => Resume();
 
@@ -98,10 +89,8 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         AudioListener.pause = false;
-        SceneManager.LoadScene("Main Menu");  // o el nombre exacto de tu menú principal
+        SceneManager.LoadScene("Main Menu"); 
     }
-
-    
 
     public void VolverAPausa()
     {
