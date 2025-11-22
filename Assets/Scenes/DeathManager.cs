@@ -51,6 +51,6 @@ public class DeathManager : MonoBehaviour
     public void VolverAlMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 }
