@@ -1415,156 +1415,149 @@ Velocidad Máxima: 3,30
 Velocidad Promedio: 0,23
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:45:50 a. m.
-Escena: Nivel1_Limbo
-Caídas: 2
-Velocidad Máxima: 116,05
-Velocidad Promedio: 37,21
-
------ NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:45:50 a. m.
-Escena: Nivel1_Limbo
-Caídas: 2
-Velocidad Máxima: 116,05
-Velocidad Promedio: 37,21
-
------ NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:48:31 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:37:46 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 62,18
-Velocidad Promedio: 23,92
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:48:31 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:37:46 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 62,18
-Velocidad Promedio: 23,92
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:49:31 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:38:45 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 50,43
-Velocidad Promedio: 26,24
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:49:31 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:38:45 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 50,43
-Velocidad Promedio: 26,24
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:50:22 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:39:11 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 41,31
-Velocidad Promedio: 17,32
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 4:50:22 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:39:11 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 41,31
-Velocidad Promedio: 17,32
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:05:47 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:45:59 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 56,05
-Velocidad Promedio: 22,66
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:05:47 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:45:59 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 56,05
-Velocidad Promedio: 22,66
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:09:52 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:54:40 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 3,02
-Velocidad Promedio: 0,07
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,48
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:09:52 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 3:59:36 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 3,02
-Velocidad Promedio: 0,07
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:13:49 a. m.
-Escena: Nivel1_Limbo
-Caídas: 3
-Velocidad Máxima: 108,45
-Velocidad Promedio: 37,71
-
------ NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:14:08 a. m.
-Escena: Nivel2_Lujuria
+Fecha: 22/11/2025 3:59:36 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 15,32
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:14:08 a. m.
-Escena: Nivel2_Lujuria
+Fecha: 22/11/2025 4:00:07 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 15,32
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:17:24 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 4:00:07 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 54,77
-Velocidad Promedio: 22,60
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,01
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:17:24 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 4:03:22 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 54,77
-Velocidad Promedio: 22,60
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:30:35 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 4:03:22 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 0,06
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:30:35 a. m.
-Escena: Nivel1_Limbo
+Fecha: 22/11/2025 4:06:07 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 0,06
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:34:31 a. m.
-Escena: Nivel1_Limbo
-Caídas: 1
-Velocidad Máxima: 118,68
-Velocidad Promedio: 42,96
-
------ NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:34:52 a. m.
-Escena: Nivel2_Lujuria
+Fecha: 22/11/2025 4:06:07 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 19,60
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
 
 ----- NUEVA SESIÓN -----
-Fecha: 22/11/2025 5:34:52 a. m.
-Escena: Nivel2_Lujuria
+Fecha: 22/11/2025 4:06:25 a. m.
+Escena: Nivel0_Pruebas
 Caídas: 0
-Velocidad Máxima: 46,00
-Velocidad Promedio: 19,60
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 4:06:25 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 0
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,00
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 4:08:29 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 0
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,41
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 4:08:29 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 0
+Velocidad Máxima: 4,00
+Velocidad Promedio: 0,41
 
