@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 6813586400067538968}
   - component: {fileID: 8304603954672594918}
   - component: {fileID: 856961841585562824}
+  - component: {fileID: 417844704763746388}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   efectoHUD: {fileID: 0}
   slowMo: {fileID: 856961841585562824}
+  skyboxManager: {fileID: 0}
 --- !u!114 &8304603954672594918
 MonoBehaviour:
   m_ObjectHideFlags: 0
