@@ -44574,10 +44574,10 @@ PrefabInstance:
     - target: {fileID: 2069193782273563008, guid: 43fb4ca20c4ad8341aa362788785612e, type: 3}
       propertyPath: escenaDestino
       value: 
-      objectReference: {fileID: 102900000, guid: 0f9210087becc2c4bba5d1dce463ea85, type: 3}
+      objectReference: {fileID: 102900000, guid: 22662ad8ce05a1d459552030db6fa942, type: 3}
     - target: {fileID: 2069193782273563008, guid: 43fb4ca20c4ad8341aa362788785612e, type: 3}
       propertyPath: nombreEscenaDestino
-      value: Nivel2_Lujuria
+      value: Nivel6_Violencia
       objectReference: {fileID: 0}
     - target: {fileID: 8863321099234771419, guid: 43fb4ca20c4ad8341aa362788785612e, type: 3}
       propertyPath: m_RootOrder
