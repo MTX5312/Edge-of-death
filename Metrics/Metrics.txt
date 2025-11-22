@@ -1561,3 +1561,87 @@ Caídas: 0
 Velocidad Máxima: 34,34
 Velocidad Promedio: 16,28
 
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:00:16 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 49,79
+Velocidad Promedio: 26,45
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:00:16 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 49,79
+Velocidad Promedio: 26,45
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:01:04 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 36,31
+Velocidad Promedio: 17,00
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:01:04 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 36,31
+Velocidad Promedio: 17,00
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:03:05 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 53,74
+Velocidad Promedio: 33,74
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:03:05 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 53,74
+Velocidad Promedio: 33,74
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:06:23 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 45,59
+Velocidad Promedio: 30,84
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:06:23 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 45,59
+Velocidad Promedio: 30,84
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:07:24 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 46,08
+Velocidad Promedio: 38,84
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:07:24 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 46,08
+Velocidad Promedio: 38,84
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:08:09 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 52,32
+Velocidad Promedio: 42,80
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 2:08:09 a. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 52,32
+Velocidad Promedio: 42,80
+
