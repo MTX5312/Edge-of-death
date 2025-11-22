@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
 
             musicSource.playOnAwake = false;
             musicSource.loop = true;
-            musicSource.volume = 0.7f;  // Ajusta como quieras
+            musicSource.volume = 0.35f;  // Ajusta como quieras
         }
         else
         {

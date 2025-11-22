@@ -1428,3 +1428,17 @@ Caídas: 2
 Velocidad Máxima: 116,05
 Velocidad Promedio: 37,21
 
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 4:48:31 a. m.
+Escena: Nivel1_Limbo
+Caídas: 0
+Velocidad Máxima: 62,18
+Velocidad Promedio: 23,92
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 4:48:31 a. m.
+Escena: Nivel1_Limbo
+Caídas: 0
+Velocidad Máxima: 62,18
+Velocidad Promedio: 23,92
+
