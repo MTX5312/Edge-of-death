@@ -1561,3 +1561,129 @@ Caídas: 0
 Velocidad Máxima: 34,34
 Velocidad Promedio: 16,28
 
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:42:27 p. m.
+Escena: Nivel7_Gula
+Caídas: 13
+Velocidad Máxima: 132,97
+Velocidad Promedio: 15,50
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:42:27 p. m.
+Escena: Nivel7_Gula
+Caídas: 13
+Velocidad Máxima: 132,97
+Velocidad Promedio: 15,50
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:43:41 p. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 50,78
+Velocidad Promedio: 11,74
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:43:41 p. m.
+Escena: Nivel0_Pruebas
+Caídas: 1
+Velocidad Máxima: 50,78
+Velocidad Promedio: 11,74
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:46:27 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,30
+Velocidad Promedio: 15,60
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:46:27 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,30
+Velocidad Promedio: 15,60
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:49:11 p. m.
+Escena: Nivel7_Gula
+Caídas: 1
+Velocidad Máxima: 70,10
+Velocidad Promedio: 30,57
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:49:11 p. m.
+Escena: Nivel7_Gula
+Caídas: 1
+Velocidad Máxima: 70,10
+Velocidad Promedio: 30,57
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:51:28 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,10
+Velocidad Promedio: 7,97
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:51:28 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,10
+Velocidad Promedio: 7,97
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:53:06 p. m.
+Escena: Nivel0_Pruebas
+Caídas: 0
+Velocidad Máxima: 53,79
+Velocidad Promedio: 34,80
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:53:06 p. m.
+Escena: Nivel0_Pruebas
+Caídas: 0
+Velocidad Máxima: 53,79
+Velocidad Promedio: 34,80
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:53:24 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,10
+Velocidad Promedio: 4,38
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:53:24 p. m.
+Escena: Nivel7_Gula
+Caídas: 0
+Velocidad Máxima: 70,10
+Velocidad Promedio: 4,38
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:57:04 p. m.
+Escena: Nivel7_Gula
+Caídas: 11
+Velocidad Máxima: 157,06
+Velocidad Promedio: 50,16
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:57:04 p. m.
+Escena: Nivel7_Gula
+Caídas: 11
+Velocidad Máxima: 157,06
+Velocidad Promedio: 50,16
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:58:48 p. m.
+Escena: Nivel6_Violencia
+Caídas: 2
+Velocidad Máxima: 40,03
+Velocidad Promedio: 20,83
+
+----- NUEVA SESIÓN -----
+Fecha: 21/11/2025 10:58:48 p. m.
+Escena: Nivel6_Violencia
+Caídas: 2
+Velocidad Máxima: 40,03
+Velocidad Promedio: 20,83
+
