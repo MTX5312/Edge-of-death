@@ -292,7 +292,7 @@ MonoBehaviour:
     volume: 0.1
   gameMusic:
     clip: {fileID: 8300000, guid: 382961e0152e1734eb0c6facf2eede88, type: 3}
-    volume: 0.015
+    volume: 0.028
 --- !u!4 &282571073
 Transform:
   m_ObjectHideFlags: 0
