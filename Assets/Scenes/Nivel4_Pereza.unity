@@ -2302,6 +2302,10 @@ PrefabInstance:
       propertyPath: dashTimeDuration
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2394659698561350563, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
+      propertyPath: estaEnPereza
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6813586400067538968, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
       propertyPath: slowMo
       value: 
