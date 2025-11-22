@@ -266,8 +266,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 282571073}
-  - component: {fileID: 282571072}
   - component: {fileID: 282571074}
+  - component: {fileID: 282571075}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -275,24 +275,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &282571072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282571071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a93ff21b35eca94fb251b7784af8913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuMusic:
-    clip: {fileID: 8300000, guid: 7711a02e3fb26b3428940f3f731fde6e, type: 3}
-    volume: 0.1
-  gameMusic:
-    clip: {fileID: 8300000, guid: 382961e0152e1734eb0c6facf2eede88, type: 3}
-    volume: 0.028
 --- !u!4 &282571073
 Transform:
   m_ObjectHideFlags: 0
@@ -404,6 +386,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &282571075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282571071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a93ff21b35eca94fb251b7784af8913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMusic:
+    clip: {fileID: 8300000, guid: 7711a02e3fb26b3428940f3f731fde6e, type: 3}
+    volume: 0.1
+  levelMusics:
+  - levelNameContains: Limbo
+    music:
+      clip: {fileID: 8300000, guid: 382961e0152e1734eb0c6facf2eede88, type: 3}
+      volume: 0.023
+  defaultLevelMusic:
+    clip: {fileID: 0}
+    volume: 0.3
 --- !u!1 &298808502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +2927,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 282571072}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 4
