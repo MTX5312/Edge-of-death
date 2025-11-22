@@ -15,6 +15,6 @@ public class EndScreenManager : MonoBehaviour
 
     public void VolverAlMenu()
     {
-        SceneManager.LoadScene("MainMenu");  // Tu escena del menú
+        SceneManager.LoadScene("Main Menu");  // Tu escena del menú
     }
 }
