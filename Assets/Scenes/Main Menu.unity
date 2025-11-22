@@ -406,6 +406,30 @@ MonoBehaviour:
     music:
       clip: {fileID: 8300000, guid: 382961e0152e1734eb0c6facf2eede88, type: 3}
       volume: 0.023
+  - levelNameContains: Lujuria
+    music:
+      clip: {fileID: 8300000, guid: 0864c283289ff8d45828478527bff609, type: 3}
+      volume: 0.023
+  - levelNameContains: Avaricia
+    music:
+      clip: {fileID: 8300000, guid: d74e50672e39eb041a27b3e73e159296, type: 3}
+      volume: 0.023
+  - levelNameContains: Pereza
+    music:
+      clip: {fileID: 8300000, guid: 6488bf2a2171c9145bf78b0597a6809e, type: 3}
+      volume: 0.023
+  - levelNameContains: Violencia
+    music:
+      clip: {fileID: 8300000, guid: 9ad99ab4c7404de4b8e6c65e942f794c, type: 3}
+      volume: 0.023
+  - levelNameContains: Gula
+    music:
+      clip: {fileID: 8300000, guid: ed1c0820c0b636741b6175fd474d79f2, type: 3}
+      volume: 0.023
+  - levelNameContains: Traicion
+    music:
+      clip: {fileID: 8300000, guid: 5ca9e59363b210d4f944738fcb9b0aae, type: 3}
+      volume: 0.023
   defaultLevelMusic:
     clip: {fileID: 0}
     volume: 0.3
