@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 43f945942b7e48746b8af01c31f12ea0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -655,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 361742324350961164, guid: 0eb996a889c6a7f4b9c950fd0fae10a1, type: 3}
       propertyPath: camara
       value: 
-      objectReference: {fileID: 1712681722}
+      objectReference: {fileID: 0}
     - target: {fileID: 361742324350961165, guid: 0eb996a889c6a7f4b9c950fd0fae10a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2382,17 +2382,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b84652528ef5f42ac2c86d41862b2c, type: 3}
---- !u!114 &1712681722 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6813586399949130779, guid: 7eed133ee34c6b448a6dff327f4442cb, type: 3}
-  m_PrefabInstance: {fileID: 509163337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364c8bb822c960c4f9b14452ae9bb9c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6626397489289316555
 PrefabInstance:
   m_ObjectHideFlags: 0
