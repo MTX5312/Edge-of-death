@@ -1,34 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;  // Singleton fácil
+    public static AudioManager Instance;
 
-    [Header("Clips de Música (arrastra aquí)")]
-    [SerializeField] private AudioClip menuMusic;
-    [SerializeField] private AudioClip gameMusic;
+    [Header("Clips con su propio volumen")]
+    [SerializeField] private AudioClipWithVolume menuMusic;
+    [SerializeField] private AudioClipWithVolume gameMusic;
 
-    [Header("Configuración")]
-    [SerializeField] private AudioSource musicSource;
+    private AudioSource musicSource;
+
+    [System.Serializable]
+    public class AudioClipWithVolume
+    {
+        public AudioClip clip;
+        [Range(0f, 1f)] public float volume = 0.3f;   
+    }
 
     private void Awake()
     {
-        // Singleton: Solo queda 1 en toda la vida del juego
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persiste entre escenas
+            DontDestroyOnLoad(gameObject);
 
-            // Crea el AudioSource si no lo tienes
-            if (musicSource == null)
-            {
-                musicSource = gameObject.AddComponent<AudioSource>();
-            }
-
+            musicSource = GetComponent<AudioSource>();
             musicSource.playOnAwake = false;
             musicSource.loop = true;
-            musicSource.volume = 0.35f;  // Ajusta como quieras
         }
         else
         {
@@ -36,38 +36,34 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Cambia música según la escena (¡automático!)
-        if (scene.name == "Main Menu" || scene.name.Contains("Menu"))  // Ajusta si tu menú se llama diferente
+        if (scene.name.Contains("Menu") || scene.name.Contains("Main"))
+            PlayMusic(menuMusic);
+        else
+            PlayMusic(gameMusic);
+    }
+
+    void PlayMusic(AudioClipWithVolume music)
+    {
+        if (musicSource.clip != music.clip || !musicSource.isPlaying)
         {
-            PlayMenuMusic();
+            musicSource.clip = music.clip;
+            musicSource.volume = music.volume;
+            musicSource.Play();
         }
         else
         {
-            PlayGameMusic();
+            musicSource.volume = music.volume;  
         }
     }
 
-    public void PlayMenuMusic()
+    
+    public void SetMusicVolume(float volume)
     {
-        musicSource.clip = menuMusic;
-        musicSource.Play();
-    }
-
-    public void PlayGameMusic()
-    {
-        musicSource.clip = gameMusic;
-        musicSource.Play();
+        musicSource.volume = Mathf.Max(volume, 0.001f);  
     }
 }
