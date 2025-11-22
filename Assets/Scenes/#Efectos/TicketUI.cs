@@ -8,8 +8,17 @@ public class TicketUI : MonoBehaviour
 
     void Start()
     {
+        // Nos suscribimos al evento
         player.OnTicketChanged += UpdateTicketUI;
+
+        // Actualizar al inicio
         UpdateTicketUI(player.ticket);
+    }
+
+    private void OnDestroy()
+    {
+        // Buenas prácticas: desuscribir evento
+        player.OnTicketChanged -= UpdateTicketUI;
     }
 
     void UpdateTicketUI(int value)

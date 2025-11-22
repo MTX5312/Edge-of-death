@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class ScriptJugador : MonoBehaviour
 {
+    // ----------------- TICKETS -----------------
     public int ticket = 0;
     public event Action<int> OnTicketChanged;
 
+    public void AddTicket(int amount)
+    {
+        ticket += amount;
+        OnTicketChanged?.Invoke(ticket);
+    }
+
+    // ----------------- MOVIMIENTO -----------------
     [Header("Movimiento")]
     public float velocidadActual = 20f;
     private Vector3 direccion;
@@ -16,7 +24,7 @@ public class ScriptJugador : MonoBehaviour
     [Header("Deslizar")]
     public float tiempoRestanteSlide = 0f;
     bool deslizando = false;
-    public System.Action OnSlide;
+    public Action OnSlide;
     private float alturaOriginalCollider;
     private Vector3 centroOriginalCollider;
 
@@ -37,16 +45,15 @@ public class ScriptJugador : MonoBehaviour
     private int saltosRestantes = 2;
 
     [Header("Frenado / Patinaje")]
-    [Range(0f, 10f)] public float suavidadFrenado = 3f; // Controla qué tan rápido se detiene
-    public float velocidadUmbral = 0.1f; // Velocidad mínima para detener por completo
+    [Range(0f, 10f)] public float suavidadFrenado = 3f;
+    public float velocidadUmbral = 0.1f;
 
-    // Variables para la zona de Gula
+    // ----------------- ZONAS ESPECIALES -----------------
     private float currentGravityMultiplier = 1f;
     private float currentJumpReductionFactor = 1f;
     private float currentSpeedReductionFactor = 1f;
     private bool isInHighGravityZone = false;
 
-    // Variables para la zona de inversión
     public bool isInZonaTraicion = false;
     private CharacterController controller;
 
@@ -76,13 +83,12 @@ public class ScriptJugador : MonoBehaviour
             y = -y;
         }
 
-        // Guardamos el input global (ya invertido si corresponde)
         inputMovimiento = new Vector3(x, 0, y).normalized;
 
         Movimiento();
         Deslizar();
 
-        // Manejo de saltos y gravedad
+        // ----------------- SALTO & GRAVEDAD -----------------
         if (controller.isGrounded)
         {
             velocidadVertical = -1f;
@@ -90,22 +96,23 @@ public class ScriptJugador : MonoBehaviour
         }
         else
         {
-            // Aplicar gravedad con multiplicador
             velocidadVertical += gravedad * currentGravityMultiplier * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
         {
-            float effectiveJumpForce = (saltosRestantes == 2) ? fuerzaSalto * currentJumpReductionFactor : fuerzaDobleSalto * currentJumpReductionFactor;
+            float effectiveJumpForce = (saltosRestantes == 2)
+                ? fuerzaSalto * currentJumpReductionFactor
+                : fuerzaDobleSalto * currentJumpReductionFactor;
+
             velocidadVertical = effectiveJumpForce;
             saltosRestantes--;
         }
 
-        // Movimiento horizontal
+        // ----------------- MOVIMIENTO HORIZONTAL -----------------
         if (inputMovimiento.sqrMagnitude > 0.01f)
         {
             direccion = Body.TransformDirection(inputMovimiento);
-
             Vector3 moveVector = direccion * (velocidadActual * currentSpeedReductionFactor) + Vector3.up * velocidadVertical;
             controller.Move(moveVector * Time.deltaTime);
 
@@ -121,6 +128,7 @@ public class ScriptJugador : MonoBehaviour
         }
     }
 
+    // ----------------- MOVIMIENTO ACELERACIÓN -----------------
     private void Movimiento()
     {
         float aceleracion = 3f;
@@ -135,7 +143,6 @@ public class ScriptJugador : MonoBehaviour
         else
             aceleracion = 2.5f;
 
-        // Usamos el input ya invertido
         bool moviendoAdelante = inputMovimiento.z > 0.1f;
         bool moviendoAtras = inputMovimiento.z < -0.1f;
 
@@ -151,13 +158,14 @@ public class ScriptJugador : MonoBehaviour
         }
         else if (controller.isGrounded)
         {
-            // Aplicamos frenado suave (patinaje)
             velocidadActual = Mathf.Lerp(velocidadActual, velocidadMinima, Time.deltaTime * suavidadFrenado);
+
             if (velocidadActual - velocidadMinima < velocidadUmbral)
                 velocidadActual = velocidadMinima;
         }
     }
 
+    // ----------------- DESLIZAR -----------------
     private void Deslizar()
     {
         float duracionSlide = 1f;
@@ -174,7 +182,6 @@ public class ScriptJugador : MonoBehaviour
             tiempoRestanteSlide = duracionSlide;
             tiempoUltimoSlide = Time.time;
 
-            // Cambiar solo el collider, no la escala visual
             CambiarAltura(alturaSlide);
         }
 
@@ -190,7 +197,6 @@ public class ScriptJugador : MonoBehaviour
             {
                 deslizando = false;
 
-                // Restaurar altura original
                 controller.height = alturaOriginalCollider;
                 controller.center = centroOriginalCollider;
             }
@@ -210,9 +216,7 @@ public class ScriptJugador : MonoBehaviour
         }
     }
 
-    // ----------------- ZONAS ESPECIALES -----------------
-
-    // Zona de Gula
+    // ----------------- ZONAS -----------------
     public void EnterHighGravityZone(float gravityMultiplier, float jumpReductionFactor, float speedReductionFactor)
     {
         currentGravityMultiplier = gravityMultiplier;
@@ -229,7 +233,6 @@ public class ScriptJugador : MonoBehaviour
         isInHighGravityZone = false;
     }
 
-    // Zona de Traición
     public void EnterInversionZone()
     {
         isInZonaTraicion = true;
@@ -240,53 +243,33 @@ public class ScriptJugador : MonoBehaviour
         isInZonaTraicion = false;
     }
 
-    public void AddTicket(int amount)
-    {
-        ticket += amount;
-        OnTicketChanged?.Invoke(ticket);
-    }
-    // Rebote al caer sobre un enemigo
+    // ----------------- ENEMIGOS -----------------
     public void Bounce(float fuerza)
     {
-        // Fuerza hacia arriba del rebote
         velocidadVertical = fuerza;
-
-        // Reiniciar saltos para permitir volver a saltar después del rebote
         saltosRestantes = 2;
 
-        // Mover al jugador hacia arriba con el CharacterController
-        // (evita quedarse trabado dentro del enemigo)
         if (controller != null)
-        {
             controller.Move(Vector3.up * 0.1f);
-        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Enemy"))
         {
-            // Determinar si el impacto vino desde arriba:
-            // Si el punto de contacto está por encima del centro del enemigo, tratamos como top? 
-
-            // Penalización: respawnear al jugador y resetear enemigos
             PenalizeAndRespawn();
         }
-
     }
+
     private void PenalizeAndRespawn()
     {
-        // Desactivar CharacterController para mover sin bugs
         controller.enabled = false;
 
-        // Teletransportar al respawn global del juego
         transform.position = DeathZoneScript.currentRespawnPosition;
 
         controller.enabled = true;
 
-        // Resetear enemigos si existe el manager
         if (EnemyManager.Instance != null)
-             EnemyManager.Instance.ResetAllEnemies();
-}
-
+            EnemyManager.Instance.ResetAllEnemies();
+    }
 }
