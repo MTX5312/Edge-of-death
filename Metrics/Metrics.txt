@@ -1561,3 +1561,45 @@ Caídas: 0
 Velocidad Máxima: 4,00
 Velocidad Promedio: 0,41
 
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 9:29:18 a. m.
+Escena: Nivel2_Lujuria
+Caídas: 0
+Velocidad Máxima: 46,71
+Velocidad Promedio: 27,59
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 10:30:56 a. m.
+Escena: Nivel1_Limbo
+Caídas: 0
+Velocidad Máxima: 3,34
+Velocidad Promedio: 0,01
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 11:13:10 a. m.
+Escena: Nivel7_Gula
+Caídas: 14
+Velocidad Máxima: 71,86
+Velocidad Promedio: 23,27
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 11:37:42 a. m.
+Escena: Nivel6_Violencia
+Caídas: 8
+Velocidad Máxima: 59,05
+Velocidad Promedio: 24,31
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 12:41:55 p. m.
+Escena: Nivel6_Violencia
+Caídas: 29
+Velocidad Máxima: 112,09
+Velocidad Promedio: 35,06
+
+----- NUEVA SESIÓN -----
+Fecha: 22/11/2025 1:24:04 p. m.
+Escena: Nivel6_Violencia
+Caídas: 61
+Velocidad Máxima: 87,22
+Velocidad Promedio: 16,12
+
