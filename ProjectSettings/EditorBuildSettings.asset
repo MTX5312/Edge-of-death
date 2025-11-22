@@ -15,8 +15,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel2_Lujuria.unity
     guid: 0f9210087becc2c4bba5d1dce463ea85
   - enabled: 1
-    path: Assets/Scenes/Nivel0_Pruebas.unity
-    guid: 849e8639e93762046815e628d200d888
+    path: Assets/Scenes/Nivel3_Avaricia.unity
+    guid: 9e5f37e41f2236a49857ca54cd4ee428
+  - enabled: 1
+    path: Assets/Scenes/Nivel4_Pereza.unity
+    guid: 5fbf58bfc736cab49afd38f9d8169c99
+  - enabled: 1
+    path: Assets/Scenes/Nivel6_Violencia.unity
+    guid: 22662ad8ce05a1d459552030db6fa942
+  - enabled: 1
+    path: Assets/Scenes/Nivel7_Gula.unity
+    guid: 309c722f53fb97740a72074979284dcf
+  - enabled: 1
+    path: Assets/Scenes/Nivel8_Traicion.unity
+    guid: 9e629c2aef24891429b4db7bea2f37e2
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 51fcdc3451cab834fa1eb42b19cf8b98
