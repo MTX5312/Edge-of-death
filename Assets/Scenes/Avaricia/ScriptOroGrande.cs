@@ -9,6 +9,9 @@ public class ScriptOroGrande : MonoBehaviour
     public float resetHeight;
     public float resetDelay = 1f;
 
+    [Header("Rotación")]
+    public float rotationSpeed = 1f;
+
     private Vector3 originalPosition;
     private bool isResetting = false;
 
@@ -23,15 +26,17 @@ public class ScriptOroGrande : MonoBehaviour
         if (!isResetting)
         {
             transform.position += Vector3.down * fallSpeed * Time.deltaTime;
+        }
 
-            if (transform.position.y <= resetHeight)
-            {
-                StartCoroutine(ResetPosition());
-            }
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+
+        if (transform.position.y <= resetHeight && !isResetting)
+        {
+            StartCoroutine(ResetPosition());
         }
     }
 
-    private System.Collections.IEnumerator ResetPosition()
+    private IEnumerator ResetPosition()
     {
         isResetting = true;
 
