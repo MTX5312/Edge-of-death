@@ -381,5 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeef7fd434df4e4782f536bebc37a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
+  onSignal: 0
   targets: []
-  triggered: 0
+  customCollider: {fileID: 0}
