@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8d1acaa1ab8447c44935cf70b49122ad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8eddf32a4ef38194ca7a66c137a1a6aa, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d1acaa1ab8447c44935cf70b49122ad, type: 3}
       propertyPath: m_Name
       value: Lingote
